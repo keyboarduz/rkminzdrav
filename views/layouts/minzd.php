@@ -45,7 +45,7 @@ MinzdravAsset::register($this);
             <div class="row">
                 <div class="col-sm-9">
                     <a href="<?= Url::to(['/']) ?>" class="logo">
-                        <img src="<?= Url::to('@web/images/Logo.png') ?>" alt="logo" class="" height="108" width="108">
+                        <img src="<?= Url::to('@web/images/logo.png') ?>" alt="logo" class="" height="108" width="108">
                         <span class="text-uppercase">
                                 Қорақалпоғистон Республикаси
                                 <br>
