@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use app\modules\admin\models\News;
 use Yii;
 use yii\filters\AccessControl;
@@ -150,5 +151,16 @@ class SiteController extends Controller
         ]);
         \Yii::$app->runAction('migrate/up', ['migrationPath' => '@app/migrations/', 'interactive' => false]);
         \Yii::$app = $oldApp;
+    }
+
+    public function actionCreateAdmin() {
+        $user = new User();
+
+        $user->username = 'admin';
+        $user->email = 'example@rkminzdrav.uz';
+        $user->setPassword('123123');
+        $user->generateAuthKey();
+
+        return $user->save() ? 'OK' : 'Error';
     }
 }
