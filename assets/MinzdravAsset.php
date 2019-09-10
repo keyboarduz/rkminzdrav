@@ -21,7 +21,8 @@ class MinzdravAsset extends AssetBundle
         'css/site.css',
     ];
 
-    public $js = [];
+    public $js = [
+    ];
 
     public $depends = [
         'app\assets\FontAwesomeAsset',

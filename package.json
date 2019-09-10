@@ -1,7 +1,9 @@
 {
   "name": "rkminzdrav.loc",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-cli": "^2.2.0"
+  },
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.0",
