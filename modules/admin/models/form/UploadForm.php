@@ -29,6 +29,7 @@ class UploadForm extends Model
                 'file',
                 'extensions' => ['jpg', 'png', 'gif', 'jpeg'],
                 'skipOnEmpty' => false,
+                'maxSize' => 1024 * 1000 // 1 megabyte
             ]
         ];
     }

@@ -69,7 +69,14 @@ class NewsController extends Controller
         $model = new News(['scenario' => News::SCENARIO_CREATE]);
         $uploadModel = new UploadForm();
 
-        if ( Yii::$app->request->isPost && $model->load(Yii::$app->request->post()) ) {
+//        var_dump($_POST); die;
+
+        $isLoaded = $model->load(Yii::$app->request->post());
+        Yii::debug('IsPost: ' . Yii::$app->request->isPost);
+        Yii::debug('IsLoaded: ' . $isLoaded);
+        if ( Yii::$app->request->isPost && $isLoaded ) {
+//            var_dump('here'); die;
+//            Yii::debug('isPost and model loaded');
             $uploadModel->imageFile = UploadedFile::getInstance($uploadModel, 'imageFile');
             if ( $uploadModel->upload( $model, 'image_url' ) && $model->save() ) {
                 return $this->redirect(['view', 'id' => $model->id]);

@@ -1,9 +1,34 @@
-version: '2'
+version: '3'
+
 services:
-  php:
-    image: php:7.3-apache
+
+  web:
+    # Собираем из Dockerfile
+    build: ./docker
     volumes:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      - ./:/app:delegated
+      - ./:/var/www/html:delegated
+      - "./docker/conf/apache/etc/apache2/sites-available/:/etc/apache2/sites-available/"
+      - "./docker/conf/php/usr/local/etc/php/conf.d/:/usr/local/etc/php/conf.d/"
     ports:
-      - '8000:80'
+      - '80:80'
+    working_dir: /var/www/html
+    links:
+      - db
+
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    # Показываем наружу порт
+    ports:
+      - 3306
+    # Задаем параметры для инициализации БД
+    environment:
+      # Пароль к БД
+      MYSQL_ROOT_PASSWORD: "data2222"
+      # Создаваемая по умолчанию бд
+      MYSQL_DATABASE: "rkminzdrav"
+    # Линкуем внешнюю папку для хранения БД
+    volumes:
+      - "./database:/var/lib/mysql"
