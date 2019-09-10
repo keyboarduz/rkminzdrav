@@ -2,6 +2,7 @@
 
 $db_local = require __DIR__ . '/db_local.php';
 
+
 return [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=localhost;dbname='.$db_local['db_database'],
