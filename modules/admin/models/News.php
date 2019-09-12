@@ -37,7 +37,7 @@ class News extends \yii\db\ActiveRecord
         $scenarios =  parent::scenarios();
 
         $scenarios[self::SCENARIO_CREATE] = ['id', 'author_id', 'category_id', 'title', 'content', 'status', 'viewed', 'created_at', 'updated_at', 'image_url', 'description'];
-        $scenarios[self::SCENARIO_UPDATE] = ['category_id', 'title', 'content', 'status', 'viewed', 'updated_at', 'image_url', 'description'];
+        $scenarios[self::SCENARIO_UPDATE] = ['category_id', 'title', 'content', 'status', 'viewed', 'created_at', 'updated_at', 'image_url', 'description'];
 
         return $scenarios;
     }
@@ -71,6 +71,7 @@ class News extends \yii\db\ActiveRecord
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             ['image_url', 'string'],
             ['description', 'string', 'skipOnEmpty' => true],
+            ['created_at', 'date', 'timestampAttribute' => 'created_at', 'format' => 'php:m.d.Y']
         ];
     }
 

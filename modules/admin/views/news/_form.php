@@ -16,6 +16,8 @@ if (!$model->isNewRecord) {
     $enableClientValidationForFile = false;
     $styleDisplayForFileInput = 'none';
 }
+
+$model->created_at = $model->created_at ? date('d.m.Y', $model->created_at) : $model->created_at;
 ?>
 
 <div class="news-form box box-primary">
@@ -30,6 +32,12 @@ if (!$model->isNewRecord) {
             </div>
             <div class="col-sm-6">
                 <?= $form->field($model, 'status')->dropDownList($model->getStatuses()) ?>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <?= $form->field($model, 'created_at')->textInput(['placeholder'=> 'dd.mm.YYYY'])?>
             </div>
         </div>
 

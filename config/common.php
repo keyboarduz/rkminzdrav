@@ -15,6 +15,12 @@ return [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'formatter' => [
+            'dateFormat' => 'dd.MM.yyyy',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => ' ',
+            'currencyCode' => 'EUR',
+        ],
         'db' => [
             'class' => 'yii\db\Connection',
             'charset' => 'utf8',
