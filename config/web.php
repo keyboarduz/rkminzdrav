@@ -1,7 +1,11 @@
 <?php
+use yii\helpers\ArrayHelper;
 
-$params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
+
+$params = ArrayHelper::merge(
+    require (__DIR__ . '/params.php'),
+    require (__DIR__ . '/params-local.php')
+);
 
 $config = [
     'name' => "QRSSV",
@@ -57,11 +61,6 @@ $config = [
                 ],
             ],
         ],
-        'request' => [
-            'baseUrl' => '',
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'H-ppoP7mfGTUZ5ZLFBHfGaRx8iYsnEte',
-        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -89,7 +88,6 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

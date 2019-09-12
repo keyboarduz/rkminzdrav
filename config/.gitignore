@@ -1,1 +1,3 @@
-db_local.php
+/db_local.php
+/db.php
+*-local.php
