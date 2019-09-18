@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\search\NewsSearch */
+/* @var $model app\modules\admin\models\search\ContactSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="news-search">
+<div class="contact-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,17 +17,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'author_id') ?>
+    <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'category_id') ?>
+    <?= $form->field($model, 'email') ?>
 
-    <?= $form->field($model, 'title') ?>
+    <?= $form->field($model, 'subject') ?>
 
-    <?= $form->field($model, 'content') ?>
+    <?= $form->field($model, 'body') ?>
 
     <?php // echo $form->field($model, 'status') ?>
-
-    <?php // echo $form->field($model, 'viewed') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 

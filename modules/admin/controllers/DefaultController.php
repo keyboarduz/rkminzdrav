@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\LoginForm;
+use app\modules\admin\models\Contact;
 use yii\web\Controller;
 
 /**
@@ -16,7 +17,13 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $countContact = Contact::find()->where(['status' => Contact::STATUS_NEW])->count();
+
+//        var_dump($countContact); die;
+
+        return $this->render('index', [
+            'countContact' => $countContact
+        ]);
     }
 
     public function actionLogin() {

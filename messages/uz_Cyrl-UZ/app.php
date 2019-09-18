@@ -16,5 +16,7 @@ return [
     'Contact' => 'Алоқа',
     'More' => 'Батафсил',
     'Useful sites' => 'Фойдали сайтлар',
+    'Submit' => 'Жўнатиш',
     'News not found' => 'Yangiliklar topilmadi',
+    'Thank you for contacting us. We will respond to you as soon as possible.' => "Бизга боғланганингиз учун рахмат. Иложи борича тезроқ жавоб беришга ҳаракат қиламиз."
 ];

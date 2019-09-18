@@ -13,7 +13,7 @@ use yii\web\View;
 use app\assets\MinzdravAsset;
 use yii\helpers\Url;
 
-$this->registerJsFile('https://kit.fontawesome.com/bfebc64ecd.js', ['position' => View::POS_HEAD]);
+//$this->registerJsFile('https://kit.fontawesome.com/bfebc64ecd.js', ['position' => View::POS_HEAD]);
 
 MinzdravAsset::register($this);
 ?>
@@ -58,7 +58,7 @@ MinzdravAsset::register($this);
                         Ишонч телефони:
                         <br>
                         <span style="color: #1725d0;">
-                            <i class="fas fa-phone-alt fa-rotate-270" style="font-size: 18px; color: #0806ff;"></i>
+                            <i class="fa fa-phone-square" style="font-size: 18px; color: #0806ff;"></i>
                             +998 (61) 226-00-48
                         </span>
                     </p>

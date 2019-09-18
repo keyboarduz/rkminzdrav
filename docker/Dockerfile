@@ -26,3 +26,5 @@ RUN docker-php-ext-install \
     gd \
     && a2enmod \
     rewrite
+
+RUN chown -R www-data:www-data /var/www/html/

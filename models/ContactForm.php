@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\modules\admin\models\Contact;
 use Yii;
 use yii\base\Model;
 
@@ -38,7 +39,11 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'name' => 'Исм шариф',
+            'email' => 'E-mail',
+            'subject' => 'Хабар мавзуси',
+            'body' => 'Матн',
+            'verifyCode' => 'Текшириш коди',
         ];
     }
 
@@ -50,7 +55,15 @@ class ContactForm extends Model
     public function contact($email)
     {
         if ($this->validate()) {
-            Yii::$app->mailer->compose()
+
+            $contact = new Contact();
+            $contact->attributes = $this->attributes;
+
+            $isValid = $contact->save();
+
+
+
+            $isValid = $isValid && Yii::$app->mailer->compose()
                 ->setTo($email)
                 ->setFrom([Yii::$app->params['senderEmail'] => Yii::$app->params['senderName']])
                 ->setReplyTo([$this->email => $this->name])
@@ -58,7 +71,7 @@ class ContactForm extends Model
                 ->setTextBody($this->body)
                 ->send();
 
-            return true;
+            return $isValid;
         }
         return false;
     }

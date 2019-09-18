@@ -1,12 +1,23 @@
+<?php
+/* @var $this yii\web\View */
+/* @var $countContact string */
+
+use yii\helpers\Url;
+
+?>
 <div class="admin-default-index">
-    <h1><?= $this->context->action->uniqueId ?></h1>
-    <p>
-        This is the view content for action "<?= $this->context->action->id ?>".
-        The action belongs to the controller "<?= get_class($this->context) ?>"
-        in the "<?= $this->context->module->id ?>" module.
-    </p>
-    <p>
-        You may customize this page by editing the following file:<br>
-        <code><?= __FILE__ ?></code>
-    </p>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="<?=Url::to(['contact/index'])?>" class="info-box">
+                <!-- Apply any bg-* class to to the icon to color it -->
+                <span class="info-box-icon bg-aqua"><i class="fa fa-envelope"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Murojatlar</span>
+                    <span class="info-box-number"><?=$countContact?></span>
+                </div>
+                <!-- /.info-box-content -->
+            </a>
+        </div>
+    </div>
 </div>

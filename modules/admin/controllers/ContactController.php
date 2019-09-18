@@ -3,16 +3,16 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Category;
-use app\modules\admin\models\search\CategorySearch;
+use app\modules\admin\models\Contact;
+use app\modules\admin\models\search\ContactSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CategoryController implements the CRUD actions for Category model.
+ * ContactController implements the CRUD actions for Contact model.
  */
-class CategoryController extends Controller
+class ContactController extends Controller
 {
     /**
      * @inheritdoc
@@ -24,18 +24,19 @@ class CategoryController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'set-status-viewed' => ['POST'],
                 ],
             ],
         ];
     }
 
     /**
-     * Lists all Category models.
+     * Lists all Contact models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CategorySearch();
+        $searchModel = new ContactSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +46,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Displays a single Category model.
+     * Displays a single Contact model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +58,13 @@ class CategoryController extends Controller
     }
 
     /**
-     * Creates a new Category model.
+     * Creates a new Contact model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    /*public function actionCreate()
     {
-        $model = new Category();
+        $model = new Contact();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,15 +73,15 @@ class CategoryController extends Controller
                 'model' => $model,
             ]);
         }
-    }
+    }*/
 
     /**
-     * Updates an existing Category model.
+     * Updates an existing Contact model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    /*public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
@@ -91,31 +92,53 @@ class CategoryController extends Controller
                 'model' => $model,
             ]);
         }
-    }
+    }*/
 
     /**
-     * Deletes an existing Category model.
+     * Deletes an existing Contact model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+
+        if ($model->editStatus(Contact::STATUS_DELETED))
+        {
+            Yii::$app
+                ->session
+                ->setFlash('success', 'Kontakt statusi "deleted" ga o\'zgartirildi.');
+        }
 
         return $this->redirect(['index']);
     }
 
+    public function actionSetStatusViewed($id) {
+        $model = $this->findModel(['id' => $id, 'status' => Contact::STATUS_NEW ]);
+
+
+        if ($model->editStatus(Contact::STATUS_VIEWED))
+        {
+            Yii::$app
+                ->session
+                ->setFlash('success', 'Status "ko\'rib chiqildi" ga o\'zgartirildi.');
+        }
+
+        return $this->redirect(['index']);
+
+    }
+
     /**
-     * Finds the Category model based on its primary key value.
+     * Finds the Contact model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Category the loaded model
+     * @return Contact the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Category::findOne($id)) !== null) {
+        if (($model = Contact::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

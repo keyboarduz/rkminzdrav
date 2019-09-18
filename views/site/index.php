@@ -31,7 +31,7 @@ $this->title = Yii::$app->params['organization.name'];
                                         </div>
                                         <div class="col-sm-12">
                                             <p class="date pull-left">
-                                                <i class="far fa-calendar-alt"></i>
+                                                <i class="fa fa-calendar"></i>
 
                                                 <?= date('d-m-Y', $oneNews->created_at) ?>
                                             </p>

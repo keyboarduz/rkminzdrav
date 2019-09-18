@@ -1,5 +1,9 @@
 <?php
+use yii\helpers\Html;
+use app\modules\admin\models\Contact;
+
 $user = Yii::$app->getUser()->getIdentity();
+$newContactCount = Contact::find()->where(['status' => Contact::STATUS_NEW])->count();
 
 ?>
 <aside class="main-sidebar">
@@ -38,11 +42,13 @@ $user = Yii::$app->getUser()->getIdentity();
                     ['label' => 'Foydalnuvchilar', 'icon' => 'users', 'url' => ['user/index']],
                     ['label' => 'Yangiliklar', 'icon' => 'newspaper-o', 'url' => ['news/index']],
                     ['label' => 'Yangilik kategoriyasi', 'icon' => 'tags', 'url' => ['category/index']],
+                    ['label' => 'Qayta aloqa ' . ($newContactCount != 0 ? Html::tag('span', $newContactCount, ['class' => 'badge pull-right']) : ''), 'encode' => false, 'icon' => 'envelope', 'url' => ['contact/index']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',
                         'icon' => 'share',
                         'url' => '#',
+                        'visible' => YII_DEBUG,
                         'items' => [
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
                             ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],

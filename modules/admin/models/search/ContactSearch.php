@@ -5,12 +5,12 @@ namespace app\modules\admin\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\admin\models\Category;
+use app\modules\admin\models\Contact;
 
 /**
- * CategorySearch represents the model behind the search form of `app\modules\admin\models\Category`.
+ * ContactSearch represents the model behind the search form of `app\modules\admin\models\Contact`.
  */
-class CategorySearch extends Category
+class ContactSearch extends Contact
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class CategorySearch extends Category
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['title', 'description'], 'safe'],
+            [['id', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['name', 'email', 'subject', 'body'], 'safe'],
         ];
     }
 
@@ -41,13 +41,13 @@ class CategorySearch extends Category
      */
     public function search($params)
     {
-        $query = Category::find();
+        $query = Contact::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['id' => SORT_DESC]]
+            'sort' => ['defaultOrder' => ['status' => SORT_ASC]]
         ]);
 
         $this->load($params);
@@ -61,10 +61,15 @@ class CategorySearch extends Category
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'status' => $this->status,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'email', $this->email])
+            ->andFilterWhere(['like', 'subject', $this->subject])
+            ->andFilterWhere(['like', 'body', $this->body]);
 
         return $dataProvider;
     }
