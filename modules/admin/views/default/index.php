@@ -13,7 +13,7 @@ use yii\helpers\Url;
                 <!-- Apply any bg-* class to to the icon to color it -->
                 <span class="info-box-icon bg-aqua"><i class="fa fa-envelope"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Murojatlar</span>
+                    <span class="info-box-text">Qayta aloqa</span>
                     <span class="info-box-number"><?=$countContact?></span>
                 </div>
                 <!-- /.info-box-content -->
