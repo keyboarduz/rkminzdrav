@@ -62,14 +62,16 @@ class ContactForm extends Model
             $isValid = $contact->save();
 
 
+            if (Yii::$app->params['enableEmail']) {
+                $isValid = $isValid && Yii::$app->mailer->compose()
+                        ->setTo($email)
+                        ->setFrom([Yii::$app->params['senderEmail'] => Yii::$app->params['senderName']])
+                        ->setReplyTo([$this->email => $this->name])
+                        ->setSubject($this->subject)
+                        ->setTextBody($this->body)
+                        ->send();
+            }
 
-            $isValid = $isValid && Yii::$app->mailer->compose()
-                ->setTo($email)
-                ->setFrom([Yii::$app->params['senderEmail'] => Yii::$app->params['senderName']])
-                ->setReplyTo([$this->email => $this->name])
-                ->setSubject($this->subject)
-                ->setTextBody($this->body)
-                ->send();
 
             return $isValid;
         }
