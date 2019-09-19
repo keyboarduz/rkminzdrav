@@ -8,7 +8,7 @@ use app\modules\admin\models\Contact;
 /* @var $searchModel app\modules\admin\models\search\ContactSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Contacts';
+$this->title = 'Qayta aloqa';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contact-index box box-primary">

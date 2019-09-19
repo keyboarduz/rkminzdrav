@@ -43,6 +43,8 @@ class ContactSearch extends Contact
     {
         $query = Contact::find();
 
+        $query->andWhere(['!=', 'status', self::STATUS_DELETED]);
+
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([

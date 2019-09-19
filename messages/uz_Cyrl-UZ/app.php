@@ -11,6 +11,8 @@ return [
     'News' => 'Янгиликлар',
     'Documents' => 'Ҳужжатлар',
     'Organizations' => 'Муассасалар',
+    'Republic organizations' => 'Республика муассасалари',
+    'District medical associations' => 'Туман тиббиёт бирлашмалари',
     'Announcement' => 'Еълон',
     'Ministry' => 'Вазирлик',
     'Contact' => 'Алоқа',
