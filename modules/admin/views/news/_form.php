@@ -17,7 +17,7 @@ if (!$model->isNewRecord) {
     $styleDisplayForFileInput = 'none';
 }
 
-$model->created_at = $model->created_at ? date('d.m.Y', $model->created_at) : $model->created_at;
+$model->created_at = is_int($model->created_at) ? date('d.m.Y', $model->created_at) : $model->created_at;
 ?>
 
 <div class="news-form box box-primary">
