@@ -6,6 +6,7 @@ use Yii;
 use app\models\User;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\FileHelper;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "news".
@@ -24,7 +25,7 @@ use yii\helpers\FileHelper;
  * @property User $author
  * @property Category $category
  */
-class News extends \yii\db\ActiveRecord
+class News extends ActiveRecord
 {
     const STATUS_ACTIVE = 10;
     const STATUS_DRAFT = 5;
@@ -53,7 +54,15 @@ class News extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::class,
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                // если вместо метки времени UNIX используется datetime:
+                // 'value' => new Expression('NOW()'),
+            ],
         ];
     }
 
