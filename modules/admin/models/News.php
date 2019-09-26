@@ -71,7 +71,7 @@ class News extends \yii\db\ActiveRecord
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             ['image_url', 'string'],
             ['description', 'string', 'skipOnEmpty' => true],
-            ['created_at', 'date', 'timestampAttribute' => 'created_at', 'format' => 'php:m.d.Y']
+            ['created_at', 'date', 'timestampAttribute' => 'created_at', 'format' => 'php:d.m.Y']
         ];
     }
 
