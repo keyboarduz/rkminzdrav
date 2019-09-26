@@ -15,22 +15,55 @@ use yii\web\UploadedFile;
 
 class UploadForm extends Model
 {
+    const SCENARIO_UPLOAD_IMAGE = 'upload-image';
+    const SCENARIO_UPLOAD_IMAGE_UPDATE = 'upload-image-update';
+
     /**
      * @var UploadedFile
      */
     public $imageFile;
 
+    /**
+     * @var string
+     */
+    public $filePath;
+
+    /**
+     * @var integer
+     */
+    public $maxFileSize = 1024000; //1024 * 1000 -> 1 megabyte
+
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+
+        $scenarios[self::SCENARIO_UPLOAD_IMAGE] = ['imageFile', 'filePath', 'maxFileSize'];
+        $scenarios[self::SCENARIO_UPLOAD_IMAGE_UPDATE] = ['imageFile', 'filePath', 'maxFileSize'];
+
+        return $scenarios;
+    }
+
     public function rules()
     {
         return [
-            ['imageFile', 'required'],
+            ['imageFile', 'required', 'on' => self::SCENARIO_DEFAULT],
+            ['filePath', 'string'],
+            ['maxFileSize', 'integer'],
             [
                 'imageFile',
                 'file',
                 'extensions' => ['jpg', 'png', 'gif', 'jpeg'],
-                'skipOnEmpty' => false,
-                'maxSize' => 1024 * 1000 // 1 megabyte
+                'skipOnEmpty' => true,
+                'maxSize' => $this->maxFileSize // 1 megabyte
             ]
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'imageFile' => 'Rasm'
         ];
     }
 
@@ -75,6 +108,45 @@ class UploadForm extends Model
         $model->$attribute = $fileUrl;
 
         return true;
+    }
+
+    public function uploadFile() {
+        $fileName = null;
+
+        if (!$this->validate())
+        {
+            return false;
+        }
+
+        $fileName = md5_file($this->imageFile->tempName) . '.' . $this->imageFile->extension;
+
+        $pathToFile = $this->filePath
+            . '/'
+            . substr($fileName, 0, 2)
+            . '/'
+            . substr($fileName, 2, 2)
+            . '/';
+
+        if ( !FileHelper::createDirectory($pathToFile) )
+        {
+            return false;
+        }
+
+        if (is_file($pathToFile . $fileName))
+        {
+            return $fileName;
+        }
+
+        if (!$this->imageFile->saveAs($pathToFile . $fileName)) {
+            return false;
+        }
+
+        return $fileName;
+    }
+
+    public static function getMd5FilePath (string $imageName) {
+
+        return '/' . substr($imageName, 0 , 2) . '/' . substr($imageName, 2, 2) . '/' . $imageName;
     }
 
 }
