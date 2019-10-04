@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use app\modules\admin\models\form\UploadForm;
+use app\modules\admin\models\Organization;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Organization */
@@ -40,7 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'phone',
                 'email:email',
                 'site',
-                'category',
+                [
+                    'attribute' => 'category',
+                    'format' => 'text',
+                    'value' => function ($model) {
+                        return Organization::getOrganizations()[$model->category];
+                    }
+                ]
             ],
         ]) ?>
     </div>

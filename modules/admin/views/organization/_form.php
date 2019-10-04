@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\modules\admin\models\Organization;
-
+use app\modules\admin\models\form\UploadForm;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Organization */
 /* @var $imageModel \app\modules\admin\models\form\UploadForm */
@@ -17,6 +17,10 @@ use app\modules\admin\models\Organization;
         <?= $form->field($model, 'name')->textInput() ?>
 
         <?= $form->field($imageModel, 'imageFile')->fileInput() ?>
+
+        <?php if ( !$model->isNewRecord ): ?>
+            <?= Html::img(Yii::getAlias('@web/uploads/images') . UploadForm::getMd5FilePath($model->photo), ['width' => 300]) ?>
+        <?php endif; ?>
 
         <?= $form->field($model, 'leader')->textInput(['maxlength' => true]) ?>
 

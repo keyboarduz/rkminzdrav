@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\modules\admin\models\form\UploadForm;
+use app\modules\admin\models\Organization;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\admin\models\search\OrganizationSearch */
@@ -23,15 +25,29 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
                 'name:ntext',
-                'photo',
-                'leader',
-                'address:ntext',
+                [
+                    'attribute' => 'photo',
+                    'format' => ['image', ['width' => 100]],
+                    'value' => function($model) {
+                        return  Yii::getAlias('@web/uploads/images') . UploadForm::getMd5FilePath($model->photo);
+                    },
+                    'filter' => false,
+                ],
+//                'leader',
+//                'address:ntext',
                 // 'phone',
                 // 'email:ntext',
                 // 'site',
                 // 'category',
+                [
+                    'attribute' => 'category',
+                    'format' => 'text',
+                    'value' => function ($model) {
+                        return Organization::getOrganizations()[$model->category];
+                    },
+                    'filter' => Organization::getOrganizations(),
+                ],
 
                 ['class' => 'yii\grid\ActionColumn'],
             ],

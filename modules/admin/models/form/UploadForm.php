@@ -132,14 +132,19 @@ class UploadForm extends Model
             return false;
         }
 
+
         if (is_file($pathToFile . $fileName))
         {
+            Yii::debug('File not saved! Because file found this dir.');
+
             return $fileName;
         }
 
         if (!$this->imageFile->saveAs($pathToFile . $fileName)) {
             return false;
         }
+
+        Yii::debug('File saved');
 
         return $fileName;
     }
@@ -148,5 +153,7 @@ class UploadForm extends Model
 
         return '/' . substr($imageName, 0 , 2) . '/' . substr($imageName, 2, 2) . '/' . $imageName;
     }
+
+
 
 }

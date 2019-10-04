@@ -84,8 +84,8 @@ MinzdravAsset::register($this);
                 ['label' => 'second'],
             ]],
             ['label' => Yii::t('app', 'Organizations'), 'url' => ['/site/index'], 'items' => [
-                ['label' => Yii::t('app', 'Republic organizations')],
-                ['label' => Yii::t('app', 'District medical associations')],
+                ['label' => Yii::t('app', 'Republic organizations'), 'url' => ['/organization/republic-organizations']],
+                ['label' => Yii::t('app', 'District medical associations'), 'url' => ['/organization/district-medical-associations']],
             ]],
             ['label' => Yii::t('app', 'Announcement'), 'url' => ['/site/about']],
             ['label' => Yii::t('app', 'Ministry'), 'url' => ['/site/index'], 'items' => [

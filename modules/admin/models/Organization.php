@@ -37,10 +37,12 @@ class Organization extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'address', 'phone', 'category'], 'required'],
+            [['name', 'address', 'email'], 'trim'],
             [['name', 'address', 'email'], 'string'],
             [['category'], 'integer'],
             [['photo', 'leader', 'phone', 'site'], 'string', 'max' => 255],
-            ['email', 'email']
+            ['email', 'email'],
+            ['site', 'default', 'value' => null],
         ];
     }
 
