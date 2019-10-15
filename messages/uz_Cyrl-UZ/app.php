@@ -13,7 +13,7 @@ return [
     'Organizations' => 'Муассасалар',
     'Republic organizations' => 'Республика муассасалари',
     'District medical associations' => 'Туман тиббиёт бирлашмалари',
-    'Announcement' => 'Еълон',
+    'Announcement' => 'Эълон',
     'Ministry' => 'Вазирлик',
     'Contact' => 'Алоқа',
     'More' => 'Батафсил',
