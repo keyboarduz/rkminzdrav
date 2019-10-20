@@ -35,6 +35,8 @@ class DefaultController extends Controller
             return $this->redirect('/admin/default');
         }
 
+        $model->password = '';
+
         return $this->render('login', ['model' => $model]);
     }
 

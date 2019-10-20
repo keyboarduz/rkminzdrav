@@ -112,7 +112,16 @@ MinzdravAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">Қорақалпоғистон Республикаси Соғлиқни Сақлаш Вазирлиги  <?= date('Y') ?>  <a href="/">rkmizdrav.uz</a></p>
+        <div class="row">
+            <div class="col-sm-offset-7 col-sm-5">
+                <div id="osm-map"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="pull-left">Қорақалпоғистон Республикаси Соғлиқни Сақлаш Вазирлиги  <?= date('Y') ?>  <a href="/">rkmizdrav.uz</a></p>
+            </div>
+        </div>
     </div>
 </footer>
 

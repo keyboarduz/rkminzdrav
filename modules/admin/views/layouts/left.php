@@ -41,10 +41,24 @@ $newContactCount = Contact::find()->where(['status' => Contact::STATUS_NEW])->co
                     ['label' => 'Menyu', 'options' => ['class' => 'header']],
                     ['label' => 'Foydalnuvchilar', 'icon' => 'users', 'url' => ['user/index']],
                     ['label' => 'Muassasalar', 'icon' => 'hospital-o', 'url' => ['organization/index']],
-                    ['label' => 'Yangiliklar', 'icon' => 'newspaper-o', 'url' => ['news/index']],
-                    ['label' => 'Yangilik kategoriyasi', 'icon' => 'tags', 'url' => ['category/index']],
                     ['label' => 'Qayta aloqa ' . ($newContactCount != 0 ? Html::tag('span', $newContactCount, ['class' => 'badge pull-right']) : ''), 'encode' => false, 'icon' => 'envelope', 'url' => ['contact/index']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    [
+                        'label' => 'Yangiliklar',
+                        'icon' => 'newspaper-o',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Yangiliklar', 'icon' => 'newspaper-o', 'url' => ['news/index']],
+                            ['label' => 'Yangilik kategoriyasi', 'icon' => 'tags', 'url' => ['category/index']],
+                        ],
+                    ],
+                    [
+                        'label' => 'Vazirlik',
+                        'icon' => 'bank',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Umumiy ma\'lumot', 'url' => '#', 'icon' => 'info'],
+                        ]
+                    ],
                     [
                         'label' => 'Some tools',
                         'icon' => 'share',

@@ -22,9 +22,11 @@ class MinzdravAsset extends AssetBundle
     ];
 
     public $js = [
+        'js/openmap.js'
     ];
 
     public $depends = [
+        LeafletAsset::class,
         'app\assets\FontAwesomeAsset',
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapPluginAsset'
