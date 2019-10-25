@@ -17,11 +17,14 @@ class UploadForm extends Model
 {
     const SCENARIO_UPLOAD_IMAGE = 'upload-image';
     const SCENARIO_UPLOAD_IMAGE_UPDATE = 'upload-image-update';
+    const SCENARIO_UPLOAD_DOCUMENT = 'upload-document';
 
     /**
      * @var UploadedFile
      */
     public $imageFile;
+
+    public $file;
 
     /**
      * @var string
@@ -55,7 +58,17 @@ class UploadForm extends Model
                 'file',
                 'extensions' => ['jpg', 'png', 'gif', 'jpeg'],
                 'skipOnEmpty' => true,
-                'maxSize' => $this->maxFileSize // 1 megabyte
+                'maxSize' => $this->maxFileSize, // 1 megabyte
+                'on' => [self::SCENARIO_UPLOAD_IMAGE_UPDATE, self::SCENARIO_UPLOAD_IMAGE, self::SCENARIO_DEFAULT],
+            ],
+            [
+                'file',
+                'file',
+//                'extensions' => ['doc', 'docx', 'pdf'],
+                'mimeTypes' => ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+                'skipOnEmpty' => true,
+                'maxSize' => $this->maxFileSize,
+                'on' => [self::SCENARIO_UPLOAD_DOCUMENT]
             ]
         ];
     }
@@ -110,7 +123,7 @@ class UploadForm extends Model
         return true;
     }
 
-    public function uploadFile() {
+    public function uploadFile($property = 'imageFile') {
         $fileName = null;
 
         if (!$this->validate())
@@ -118,7 +131,7 @@ class UploadForm extends Model
             return false;
         }
 
-        $fileName = md5_file($this->imageFile->tempName) . '.' . $this->imageFile->extension;
+        $fileName = md5_file($this->$property->tempName) . '.' . $this->$property->extension;
 
         $pathToFile = $this->filePath
             . '/'
@@ -140,7 +153,7 @@ class UploadForm extends Model
             return $fileName;
         }
 
-        if (!$this->imageFile->saveAs($pathToFile . $fileName)) {
+        if (!$this->$property->saveAs($pathToFile . $fileName)) {
             return false;
         }
 

@@ -60,6 +60,7 @@ $newContactCount = Contact::find()->where(['status' => Contact::STATUS_NEW])->co
                             ['label' => 'Rahbariyat', 'url' => ['/admin/leadership'], 'icon' => 'users'],
                         ]
                     ],
+                    ['label' => 'Hujjatlar', 'icon' => 'file-text', 'url' => ['/admin/manage-document']],
                     [
                         'label' => 'Some tools',
                         'icon' => 'share',
