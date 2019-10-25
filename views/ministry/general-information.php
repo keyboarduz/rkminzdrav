@@ -14,9 +14,15 @@ $this->params['breadcrumbs'][] = ['label' => $this->title];
 
 <div class="row">
     <div class="col-xs-12 col-md-9">
-        <div class="panel">
-            <?= $generalInformation->content ?>
-        </div>
+        <?php if ($generalInformation): ?>
+            <div class="panel">
+                <?= $generalInformation->content ?>
+            </div>
+        <?php else: ?>
+            <div class="well">
+                <?= Yii::t('app', 'Section is in progress')?>
+            </div>
+        <?php endif; ?>
     </div>
     <div class="col-md-3 hidden-sm hidden-xs">
         <?= $this->render('_right-side'); ?>
