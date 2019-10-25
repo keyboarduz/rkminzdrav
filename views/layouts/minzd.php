@@ -89,8 +89,8 @@ MinzdravAsset::register($this);
             ]],
             ['label' => Yii::t('app', 'Announcement'), 'url' => ['/site/about']],
             ['label' => Yii::t('app', 'Ministry'), 'url' => ['/site/index'], 'items' => [
-                ['label' => 'first'],
-                ['label' => 'second'],
+                ['label' => Yii::t('app', 'General information'), 'url' => ['/ministry/general-information']],
+                ['label' => Yii::t('app', 'Leadership'), 'url' => ['/ministry/leadership']],
             ]],
             ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']],
         ],

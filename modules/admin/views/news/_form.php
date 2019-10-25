@@ -66,11 +66,11 @@ $model->created_at = is_int($model->created_at) ? date('d.m.Y', $model->created_
 
         <?= $form->field($model, 'description')->textarea(['rows' => 3]); ?>
 
-        <?= $form->field($model, 'content')->widget(CKEditor::class, [
-            'options' => ['rows' => 6],
-            'preset' => 'full',
-            'kcfinder'=>true,
-        ]) ?>
+            <?= $form->field($model, 'content')->widget(CKEditor::class, [
+                'options' => ['rows' => 6],
+                'preset' => 'full',
+                'kcfinder'=>true,
+            ]) ?>
 
     </div>
     <div class="box-footer">

@@ -15,10 +15,16 @@ return [
     'District medical associations' => 'Туман тиббиёт бирлашмалари',
     'Announcement' => 'Эълон',
     'Ministry' => 'Вазирлик',
+    'General information' => 'Умумий маълумот',
+    'Leadership' => 'Раҳбарият',
     'Contact' => 'Алоқа',
     'More' => 'Батафсил',
     'Useful sites' => 'Фойдали сайтлар',
     'Submit' => 'Жўнатиш',
     'News not found' => 'Yangiliklar topilmadi',
-    'Thank you for contacting us. We will respond to you as soon as possible.' => "Бизга боғланганингиз учун рахмат. Иложи борича тезроқ жавоб беришга ҳаракат қиламиз."
+    'Thank you for contacting us. We will respond to you as soon as possible.' => "Бизга боғланганингиз учун рахмат. Иложи борича тезроқ жавоб беришга ҳаракат қиламиз.",
+    'Section is in progress' => 'Бўлим ишланмоқда',
+    'Reception days' => 'Қабул кунлари',
+    'Contacts' => 'Алоқалар',
+    'Phone' => 'Телефон',
 ];

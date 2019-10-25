@@ -169,6 +169,7 @@ a.desc:after {
 }
 /*panel*/
 .panel {
+  padding: 20px;
   border-top: 1px solid #f5f5f5;
   background-color: #fff;
   -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
@@ -223,4 +224,29 @@ Muassaslar
 }
 .organization-name i {
   color: #898c94;
+}
+/*leadership*/
+.lead-img {
+  text-align: center;
+}
+.leadership .lead-position {
+  font-style: italic;
+  font-size: 20px;
+  text-align: center;
+}
+.leadership .lead-name {
+  text-align: center;
+  font-size: 20px;
+  color: #703fb9;
+}
+.leadership .lead-contacts {
+  margin-top: 18px;
+}
+.leadership .lead-reception {
+  margin-top: 18px;
+}
+.leadership .lead-reception-days,
+.leadership .lead-phone,
+.leadership .lead-email {
+  color: #4a494c;
 }
