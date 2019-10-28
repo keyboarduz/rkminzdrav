@@ -65,7 +65,11 @@ class UploadForm extends Model
                 'file',
                 'file',
 //                'extensions' => ['doc', 'docx', 'pdf'],
-                'mimeTypes' => ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+                'mimeTypes' => [
+                    'application/pdf',
+                    'application/msword',
+                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                ],
                 'skipOnEmpty' => true,
                 'maxSize' => $this->maxFileSize,
                 'on' => [self::SCENARIO_UPLOAD_DOCUMENT]
@@ -76,7 +80,8 @@ class UploadForm extends Model
     public function attributeLabels()
     {
         return [
-            'imageFile' => 'Rasm'
+            'imageFile' => 'Rasm',
+            'file' => 'Fayl',
         ];
     }
 
@@ -166,7 +171,5 @@ class UploadForm extends Model
 
         return '/' . substr($imageName, 0 , 2) . '/' . substr($imageName, 2, 2) . '/' . $imageName;
     }
-
-
 
 }

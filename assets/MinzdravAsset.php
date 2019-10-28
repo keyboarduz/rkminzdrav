@@ -22,7 +22,8 @@ class MinzdravAsset extends AssetBundle
     ];
 
     public $js = [
-        'js/openmap.js'
+        'js/openmap.js',
+        'js/helper-menu.js'
     ];
 
     public $depends = [

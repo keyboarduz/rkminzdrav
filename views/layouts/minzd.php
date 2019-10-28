@@ -12,10 +12,23 @@ use yii\web\View;
 
 use app\assets\MinzdravAsset;
 use yii\helpers\Url;
+use app\modules\admin\models\Document;
 
 //$this->registerJsFile('https://kit.fontawesome.com/bfebc64ecd.js', ['position' => View::POS_HEAD]);
 
 MinzdravAsset::register($this);
+
+//generate Document menu
+$countDocumentTypes = Document::getCountTypes();
+$documentLabels = Document::getTypes();
+$documentMenu = [];
+
+foreach ($countDocumentTypes as $k => $v) {
+    $documentMenu[] = [
+        'label' => $documentLabels[$k],
+        'url' => '/document/type/' . $k,
+    ];
+}
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -79,10 +92,7 @@ MinzdravAsset::register($this);
         'items' => [
             ['label' => Yii::t('app', 'Home'), 'url' => ['/']],
             ['label' => Yii::t('app', 'News'), 'url' => ['/news/all']],
-            ['label' => Yii::t('app', 'Documents'), 'url' => ['/site/index'], 'items' => [
-                ['label' => 'first', 'url' => ['/']],
-                ['label' => 'second'],
-            ]],
+            ['label' => Yii::t('app', 'Documents'), 'url' => ['/document'], 'items' => $documentMenu],
             ['label' => Yii::t('app', 'Organizations'), 'url' => ['/site/index'], 'items' => [
                 ['label' => Yii::t('app', 'Republic organizations'), 'url' => ['/organization/republic-organizations']],
                 ['label' => Yii::t('app', 'District medical associations'), 'url' => ['/organization/district-medical-associations']],

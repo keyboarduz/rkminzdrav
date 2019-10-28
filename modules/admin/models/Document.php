@@ -99,8 +99,8 @@ class Document extends \yii\db\ActiveRecord
             'description' => 'Hujjat tavsifi',
             'content' => 'Hujjat kontenti',
             'document_number' => 'Hujjat raqami',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'created_at' => 'Yaratildi',
+            'updated_at' => "O'zgartirildi",
         ];
     }
 
@@ -123,5 +123,16 @@ class Document extends \yii\db\ActiveRecord
             self::TYPE_CODE => "Кодекслар",
             self::TYPE_DECREE_OF_THE_MINISTRY_OF_HEALTH => "Соғлиқни сақлаш вазирлигининг Фармойишлари, Қарорлари",
         ];
+    }
+
+    public static function getCountTypes() {
+        $countTypes = static::find()
+            ->select('type, COUNT(*) AS cnt')
+            ->groupBy('type')
+            ->indexBy('type')
+            ->asArray()
+            ->all();
+
+        return $countTypes;
     }
 }

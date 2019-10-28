@@ -169,14 +169,19 @@ a.desc:after {
 }
 /*panel*/
 .panel {
-  padding: 20px;
   border-top: 1px solid #f5f5f5;
   background-color: #fff;
   -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   -o-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
-.useful-sites {
+.panel-body {
+  padding: 20px;
+}
+.panel .panel-footer {
+  background-color: #ffffff;
+}
+.panel .useful-sites {
   padding: 20px;
 }
 .useful-sites a {
@@ -249,4 +254,18 @@ Muassaslar
 .leadership .lead-phone,
 .leadership .lead-email {
   color: #4a494c;
+}
+@media only screen and (min-width: 768px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+/* documents */
+.document {
+  line-height: 23px;
+}
+.document .view-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #1a08ef;
 }

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\modules\admin\models\Document;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\admin\models\search\DocumentSearch */
@@ -24,8 +25,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\SerialColumn'],
 
                 'name',
-                'date_of_admission',
-                'type',
+                [
+                    'attribute' => 'date_of_admission',
+                    'filter' => false,
+                ],
+                [
+                    'attribute' => 'type',
+                    'filter' => Document::getTypes(),
+                    'value' => function($model) {
+                        return Document::getTypes()[$model->type];
+                    }
+                ],
                 // 'description:ntext',
                 // 'content:ntext',
                 // 'document_number',

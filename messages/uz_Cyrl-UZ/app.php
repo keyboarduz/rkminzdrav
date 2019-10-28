@@ -10,6 +10,10 @@ return [
     'Home' => 'Бош саҳифа',
     'News' => 'Янгиликлар',
     'Documents' => 'Ҳужжатлар',
+    'Adoption date' => 'Қабул қилиниш санаси',
+    'Download' => 'Кўчириб олиш',
+    'Document number' => 'Ҳужжат рақами',
+    'Document type' => 'Ҳужжат тури',
     'Organizations' => 'Муассасалар',
     'Republic organizations' => 'Республика муассасалари',
     'District medical associations' => 'Туман тиббиёт бирлашмалари',
@@ -27,4 +31,5 @@ return [
     'Reception days' => 'Қабул кунлари',
     'Contacts' => 'Алоқалар',
     'Phone' => 'Телефон',
+    'No data found' => 'Маълумот топилмади'
 ];
