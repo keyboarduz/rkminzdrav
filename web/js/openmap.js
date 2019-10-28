@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
    });
 
     // Add OSM tile leayer to the Leaflet map.
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
 // Target GPS coordinates.
@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
     map.setView(target, 15);
 
 // Place a marker on the same location.
-    L.marker(target).addTo(map);
+    L.marker(target)
+        .addTo(map)
+        .bindPopup('Қорақалпоғистон Республикаси<br> Соғлиқни Сақлаш Вазирлиги')
+        .openPopup();
 
 
 });
