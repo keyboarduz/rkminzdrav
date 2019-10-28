@@ -97,8 +97,8 @@ foreach ($countDocumentTypes as $k => $v) {
                 ['label' => Yii::t('app', 'Republic organizations'), 'url' => ['/organization/republic-organizations']],
                 ['label' => Yii::t('app', 'District medical associations'), 'url' => ['/organization/district-medical-associations']],
             ]],
-            ['label' => Yii::t('app', 'Announcement'), 'url' => ['/site/about']],
-            ['label' => Yii::t('app', 'Ministry'), 'url' => ['/site/index'], 'items' => [
+            ['label' => Yii::t('app', 'Announcement'), 'url' => ['/']],
+            ['label' => Yii::t('app', 'Ministry'), 'url' => ['/ministry'], 'items' => [
                 ['label' => Yii::t('app', 'General information'), 'url' => ['/ministry/general-information']],
                 ['label' => Yii::t('app', 'Leadership'), 'url' => ['/ministry/leadership']],
             ]],
@@ -114,6 +114,7 @@ foreach ($countDocumentTypes as $k => $v) {
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            'homeLink' => ['label' => Yii::t('app', 'Main'), 'url' => ['/']],
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>

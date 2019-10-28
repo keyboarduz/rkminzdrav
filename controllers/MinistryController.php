@@ -8,6 +8,7 @@ use app\modules\admin\models\Leadership;
 class MinistryController extends \yii\web\Controller
 {
     public $layout = 'minzd';
+    public $defaultAction = 'general-information';
 
     public function actionGeneralInformation()
     {

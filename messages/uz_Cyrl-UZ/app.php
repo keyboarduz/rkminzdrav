@@ -31,5 +31,6 @@ return [
     'Reception days' => 'Қабул кунлари',
     'Contacts' => 'Алоқалар',
     'Phone' => 'Телефон',
-    'No data found' => 'Маълумот топилмади'
+    'No data found' => 'Маълумот топилмади',
+    'Main' => 'Асосий'
 ];
