@@ -22,10 +22,9 @@ use yii\behaviors\TimestampBehavior;
 class Document extends \yii\db\ActiveRecord
 {
     const TYPE_LAW_OF_THE_REPUBLIC_OF_UZBEKISTAN = 1;
-    const TYPE_DECREE_OF_THE_PRESIDENT = 2;
-    const TYPE_RESOLUTION_OF_THE_PRESIDENT = 3;
-    const TYPE_DIRECTION_OF_THE_PRESIDENT = 4;
-    const TYPE_RESOLUTION_OF_THE_CABINET_OF_MINSTERS = 5;
+    const TYPE_DECREES_RESOLUTIONS_AND_DIRECTIONS_OF_THE_PRESIDENT = 2;
+    const TYPE_RESOLUTION_OF_THE_CABINET_OF_MINSTERS_UZ = 4;
+    const TYPE_RESOLUTION_OF_THE_CABINET_OF_MINSTERS_KR = 5;
     const TYPE_ORDER_OF_THE_MINISTRY_OF_HEALTH_OF_THE_REPUBLIC_OF_UZBEKISTAN = 6;
     const TYPE_ORDER_OF_THE_MINISTRY_OF_HEALTH_OF_THE_REPUBLIC_OF_KARAKALPAKSTAN = 7;
     const TYPE_REGULATION = 8;
@@ -107,13 +106,12 @@ class Document extends \yii\db\ActiveRecord
     public static function getTypes() {
         return [
             self::TYPE_LAW_OF_THE_REPUBLIC_OF_UZBEKISTAN => "Ўзбекистон Республикаси Қонунлари",
-            self::TYPE_DECREE_OF_THE_PRESIDENT => "Ўзбекистон Республикаси Президентининг Фармонлари",
-            self::TYPE_RESOLUTION_OF_THE_PRESIDENT => "Ўзбекистон Республикаси Президентининг Қарорлари",
-            self::TYPE_DIRECTION_OF_THE_PRESIDENT => "Ўзбекистон Республикаси Президентининг Буйруқлари",
-            self::TYPE_RESOLUTION_OF_THE_CABINET_OF_MINSTERS => "Ўзбекистон Республикаси Вазирлар Маҳқамасининг Қарорлари",
+            self::TYPE_DECREES_RESOLUTIONS_AND_DIRECTIONS_OF_THE_PRESIDENT => "Ўзбекистон Республикаси Президентининг Фармонлари, Қарорлари, Буйруқлари",
+            self::TYPE_RESOLUTION_OF_THE_CABINET_OF_MINSTERS_UZ => "Ўзбекистон Республикаси Вазирлар Маҳқамасининг Фармонлари, Қарорлари, Буйруқлари",
+            self::TYPE_RESOLUTION_OF_THE_CABINET_OF_MINSTERS_KR => "Қорақалпоғистон Республикаси Вазирлар Кенгашининг Фармонлари, Қарорлари, Буйруқлари",
             self::TYPE_ORDER_OF_THE_MINISTRY_OF_HEALTH_OF_THE_REPUBLIC_OF_UZBEKISTAN => "Ўзбекистон Республикаси Соғлиқни сақлаш вазирлиги буйруқлари",
             self::TYPE_ORDER_OF_THE_MINISTRY_OF_HEALTH_OF_THE_REPUBLIC_OF_KARAKALPAKSTAN => "Қорақалпоғистон Республикаси Соғлиқни сақлаш вазирлиги буйруқлари",
-            self::TYPE_REGULATION => "Низомлари",
+            self::TYPE_REGULATION => "Низомлар",
             self::TYPE_DIAGNOSTIC_AND_TREATMENT_STANDARDS => "Ташҳис қўйиш ва даволаш меъёрлари",
             self::TYPE_CLINICAL_GUIDELINE => "Клиник қўлланма",
             self::TYPE_CONCEPT => "Концепция",
