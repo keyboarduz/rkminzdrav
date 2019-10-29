@@ -96,6 +96,9 @@ $config = [
                 'document/type/<id:\d+>' => 'document/type'
             ],
         ],
+        'request' => [
+            'baseUrl' => '',
+        ]
 
     ],
     'params' => $params,
