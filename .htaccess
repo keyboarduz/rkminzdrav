@@ -4,4 +4,4 @@ RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST} [R,L]
 
 RewriteCond %{REQUEST_URI} !^/web/
-RewriteRule ^(.*)$ /web/ [QSA]
+RewriteRule ^(.*)$ /web/$1 [QSA]
