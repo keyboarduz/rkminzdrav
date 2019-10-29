@@ -4,12 +4,8 @@ RewriteEngine on
 #RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,NE,R=301]
 
 #enable HTTPS only
-#RewriteCond %{HTTPS} !=on
-#RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\. [NC]
-RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
-RewriteRule ^ https://%1%{REQUEST_URI} [L,NE,R=301]​
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://{SERVER_NAME}%{REQUEST_URI} [L,NE,R=301]​
 
 RewriteCond %{REQUEST_URI} !^/(web)
 RewriteRule ^(.*)$ /web/$1 [QSA]
