@@ -1,19 +1,25 @@
-RewriteEngine on
+# Mod_Autoindex
+<IfModule mod_autoindex.c>
+    # Disable Indexes
+    Options -Indexes
+</IfModule>
 
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [NE,R=301]
+# Mod_Rewrite
+<IfModule mod_rewrite.c>
+    # Enable symlinks
+    Options +FollowSymlinks
+    # Enable mod_rewrite
+    RewriteEngine On
 
-#enable HTTPS only
-#RewriteCond %{HTTPS} !=on
-#RewriteRule ^ https://{SERVER_NAME}%{REQUEST_URI} [L,NE,R=301]​
-
-#RewriteCond %{REQUEST_URI} !^/(web)
-#RewriteRule ^(.*)$ /web/$1 [QSA]
-
-RewriteCond %{REQUEST_URI} ^/.*
-RewriteRule ^(.*)$ web/$1 [L]
-
-RewriteCond %{REQUEST_URI} !^/web/
-RewriteCond %{REQUEST_FILENAME} !-f [OR]
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^.*$ web/index.php
+    # SSL redirect
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+     # WWW redirect
+    RewriteCond %{HTTP_HOST} !^www\.
+    RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Frontend redirect
+    RewriteCond %{REQUEST_URI} !^public
+    RewriteRule ^(.*)$ web/$1 [L]
+</IfModule>
