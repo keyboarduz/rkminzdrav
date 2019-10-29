@@ -5,8 +5,10 @@ Options +FollowSymLinks
 IndexIgnore */*
 RewriteEngine on
 
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^/?(.*) https://%{SERVER_NAME}/web/$1 [R,L]
 RewriteCond %{HTTPS} !=on
-RewriteRule ^/?(.*) https://%{SERVER_NAME}/web/$1 [R,L]
+RewriteRule ^/?(.*) https://rkminzdrav.uz/web/$1 [R,L]
 
 RewriteRule ^((?!web/).*)$ web/$1 [L,NC]
 
