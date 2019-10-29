@@ -1,3 +1,19 @@
+#RewriteEngine on
+#RewriteCond %{REQUEST_URI} !^/web/
+#RewriteRule ^(.*)$ /web/$1 [L]
+Options +FollowSymLinks
+IndexIgnore */*
 RewriteEngine on
-RewriteCond %{REQUEST_URI} !^/web/
-RewriteRule ^(.*)$ /web/$1 [L]
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/web/$1 [R,L]
+
+RewriteRule ^((?!web/).*)$ web/$1 [L,NC]
+
+RewriteCond %{REQUEST_URI} !^/(web)
+RewriteRule (.*) /web/$1
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /web/index.php
