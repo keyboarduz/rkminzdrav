@@ -5,7 +5,7 @@ RewriteEngine on
 
 #enable HTTPS only
 RewriteCond %{HTTPS} !=on
-RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/web/$1 [R,L]
 
 RewriteCond %{REQUEST_URI} !^/(web)
 RewriteRule ^(.*)$ /web/$1 [QSA]
