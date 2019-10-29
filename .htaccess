@@ -1,7 +1,7 @@
 RewriteEngine on
 
 RewriteCond %{SERVER_PORT} !^443$
-RewriteRule ^(.*)$ https://%{HTTP_HOST} [QSA,R=301,L]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/web/$1 [QSA,R=301,L]
 
 RewriteCond %{REQUEST_URI} !^/(web)
 RewriteRule ^assets/(.*)$ /web/assets/$1 [L]
