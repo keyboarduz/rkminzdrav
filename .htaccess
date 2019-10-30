@@ -6,20 +6,20 @@
 
 #Создан на сайте https://c-wd.ru/tools/htaccess/
 
-Options +FollowSymLinks
+#Options +FollowSymLinks
 RewriteEngine On
 
 # Новый адрес главной страницы
 DirectoryIndex /web/index.php
 
 # Перенаправляем с HTTP на HTTPS
-SetEnvIf X-HTTPS 1 HTTPS
-RewriteBase /
-RewriteCond %{HTTP:X-HTTPS} !1
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+#SetEnvIf X-HTTPS 1 HTTPS
+#RewriteBase /
+#RewriteCond %{HTTP:X-HTTPS} !1
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
 # 301 редирект с одного домена на другой
 #RewriteRule (.*) $1 [R=301,L]
 
-RewriteCond %{REQUEST_URI} !^/web/
-RewriteRule ^(.*)$ /web/$1 [QSA]
+#RewriteCond %{REQUEST_URI} !^/web/
+#RewriteRule ^(.*)$ /web/$1 [QSA]
