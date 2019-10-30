@@ -19,4 +19,7 @@ RewriteCond %{HTTP:X-HTTPS} !1
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
 # 301 редирект с одного домена на другой
-RewriteRule (.*) $1 [R=301,L]
+#RewriteRule (.*) $1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/web/
+RewriteRule ^(.*)$ /web/$1 [QSA]
