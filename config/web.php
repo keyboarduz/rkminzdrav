@@ -93,7 +93,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'news/<id:\d+>' => 'news/view',
-                'document/type/<id:\d+>' => 'document/type'
+                'document/category/<id:\d+>' => 'document/category'
             ],
         ],
         'request' => [

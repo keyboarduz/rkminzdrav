@@ -31,23 +31,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel">
-                            <div class="row">
-                                <!-- foto -->
-                                <div class="col-sm-4">
-                                    <img src="<?=Url::to($oneNews->image_url)?>" class="img-responsive">
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><h4><?= Html::encode($oneNews->title)?></h4></a>
-                                            <p><?= $oneNews->description?></p>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <p class="date pull-left">
-                                                <i class="fa fa-calendar"></i>
-                                                <?= date('d-m-Y', $oneNews->created_at) ?>
-                                            </p>
-                                            <a href="<?= Url::to(['/news/' . $oneNews->id]) ?>" class="btn btn-default pull-right"><?= Yii::t('app', 'More') ?></a>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <!-- foto -->
+                                    <div class="col-sm-4">
+                                        <img src="<?=Url::to($oneNews->image_url)?>" class="img-responsive img-rounded">
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><h4><?= Html::encode($oneNews->title)?></h4></a>
+                                                <p><?= $oneNews->description?></p>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <p class="date pull-left">
+                                                    <i class="fa fa-calendar"></i>
+                                                    <?= date('d-m-Y', $oneNews->created_at) ?>
+                                                </p>
+                                                <a href="<?= Url::to(['/news/' . $oneNews->id]) ?>" class="btn btn-default pull-right"><?= Yii::t('app', 'More') ?></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

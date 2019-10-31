@@ -11,8 +11,8 @@ use app\modules\admin\models\Document;
 $this->title = Yii::t('app', 'Documents');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Documents'), 'url' => ['/document/all']];
 
-if ($this->context->action->id === 'type') {
-    $this->params['breadcrumbs'][] = ['label' => Document::getTypes()[Yii::$app->request->get('id')]];
+if ($this->context->action->id === 'category') {
+    $this->params['breadcrumbs'][] = ['label' => Document::getCategories()[Yii::$app->request->get('id')]];
 } else {
     $this->params['breadcrumbs'][] = ['label' => 'Барчаси'];
 }
@@ -52,10 +52,10 @@ if ($this->context->action->id === 'type') {
                                     <?= Html::encode($document->document_number)?>
                                 </div>
                             <?php endif; ?>
-                            <?php if ($document->type): ?>
+                            <?php if ($document->type_document): ?>
                                 <div class="col-xs-12">
                                     <strong><?= Yii::t('app', 'Document type')?>:</strong>
-                                    <?= Html::encode(Document::getTypes()[$document->type])?>
+                                    <?= Html::encode(Document::getTypes()[$document->type_document])?>
                                 </div>
                             <?php endif; ?>
                             <?php if ($document->file): ?>

@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\helpers\Url;
 use app\modules\admin\models\form\UploadForm;
+use app\modules\admin\models\Document;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Document */
@@ -30,9 +31,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'name',
                 'date_of_admission',
                 [
-                    'attribute' => 'type',
+                    'attribute' => 'category',
                     'value' => function ($model) {
-                        return \app\modules\admin\models\Document::getTypes()[$model->type];
+                        return Document::getCategories()[$model->category];
+                    }
+                ],
+                [
+                    'attribute' => 'type_document',
+                    'value' => function ($model) {
+                        if ($model->type_document) {
+                            return Document::getTypes()[$model->type_document];
+                        }
+
+                        return null;
                     }
                 ],
                 [

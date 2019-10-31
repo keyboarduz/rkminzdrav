@@ -16,7 +16,9 @@ $this->params['breadcrumbs'][] = ['label' => $this->title];
     <div class="col-xs-12 col-md-9">
         <?php if ($generalInformation): ?>
             <div class="panel">
-                <?= $generalInformation->content ?>
+                <div class="panel-body">
+                    <?= $generalInformation->content ?>
+                </div>
             </div>
         <?php else: ?>
             <div class="well">

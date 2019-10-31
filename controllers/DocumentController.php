@@ -29,12 +29,11 @@ class DocumentController extends Controller
         ]);
     }
 
-    public function actionType($id) {
+    public function actionCategory($id) {
 
-        $countTypes = Document::getCountTypes();
-//        var_dump($countTypes); die;
+//        $countTypes = Document::getCountCategories();
 
-        $query = Document::find()->where(['type' => $id]);
+        $query = Document::find()->where(['category' => $id]);
         $countQuery = clone $query;
         $pages = new Pagination([
             'totalCount' => $countQuery->count(),

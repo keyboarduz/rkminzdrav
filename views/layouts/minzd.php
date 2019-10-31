@@ -19,14 +19,14 @@ use app\modules\admin\models\Document;
 MinzdravAsset::register($this);
 
 //generate Document menu
-$countDocumentTypes = Document::getCountTypes();
-$documentLabels = Document::getTypes();
+$countDocumentCategories = Document::getCountCategories();
+$documentLabels = Document::getCategories();
 $documentMenu = [];
 
-foreach ($countDocumentTypes as $k => $v) {
+foreach ($countDocumentCategories as $k => $v) {
     $documentMenu[] = [
         'label' => $documentLabels[$k],
-        'url' => '/document/type/' . $k,
+        'url' => '/document/category/' . $k,
     ];
 }
 ?>
@@ -82,6 +82,9 @@ foreach ($countDocumentTypes as $k => $v) {
 
     <?php
     NavBar::begin([
+        'brandLabel' => 'ҚРССВ',
+        'brandUrl' => ['/'],
+        'brandOptions' => ['class' => 'visible-xs'],
         'options' => [
             'class' => 'rkmz-navbar',
         ],
@@ -93,7 +96,7 @@ foreach ($countDocumentTypes as $k => $v) {
             ['label' => Yii::t('app', 'Home'), 'url' => ['/']],
             ['label' => Yii::t('app', 'News'), 'url' => ['/news/all']],
             ['label' => Yii::t('app', 'Documents'), 'url' => ['/document'], 'items' => $documentMenu],
-            ['label' => Yii::t('app', 'Organizations'), 'url' => ['/site/index'], 'items' => [
+            ['label' => Yii::t('app', 'Organizations'), 'url' => ['/organization/republic-organizations'], 'items' => [
                 ['label' => Yii::t('app', 'Republic organizations'), 'url' => ['/organization/republic-organizations']],
                 ['label' => Yii::t('app', 'District medical associations'), 'url' => ['/organization/district-medical-associations']],
             ]],

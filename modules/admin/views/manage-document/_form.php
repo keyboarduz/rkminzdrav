@@ -20,7 +20,9 @@ use app\modules\admin\models\form\UploadForm;
 
         <?= $form->field($model, 'date_of_admission')->textInput() ?>
 
-        <?= $form->field($model, 'type')->dropDownList(Document::getTypes()) ?>
+        <?= $form->field($model, 'category')->dropDownList(Document::getCategories()) ?>
+
+        <?= $form->field($model, 'type_document')->dropDownList(Document::getTypes()) ?>
 
         <?php if ( !$model->isNewRecord ): ?>
 

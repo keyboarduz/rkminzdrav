@@ -18,7 +18,7 @@ class DocumentSearch extends Document
     public function rules()
     {
         return [
-            [['id', 'type', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'category', 'type_document', 'created_at', 'updated_at'], 'integer'],
             [['name', 'date_of_admission', 'file', 'description', 'content', 'document_number'], 'safe'],
         ];
     }
@@ -62,7 +62,8 @@ class DocumentSearch extends Document
         $query->andFilterWhere([
             'id' => $this->id,
             'date_of_admission' => $this->date_of_admission,
-            'type' => $this->type,
+            'category' => $this->category,
+            'type_document' => $this->type_document,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);

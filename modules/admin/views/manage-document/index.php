@@ -30,10 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     'filter' => false,
                 ],
                 [
-                    'attribute' => 'type',
-                    'filter' => Document::getTypes(),
+                    'attribute' => 'category',
+                    'filter' => Document::getCategories(),
                     'value' => function($model) {
-                        return Document::getTypes()[$model->type];
+                        return Document::getCategories()[$model->category];
                     }
                 ],
                 // 'description:ntext',

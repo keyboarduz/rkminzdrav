@@ -29,12 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-sm-12">
             <div class="panel">
-                <p>
-                    <?= Html::img( '@web' . $model->image_url, ['class' => 'img-responsive']) ?>
-                </p>
-                <span class="news-content">
+                <div class="panel-body">
+                    <p>
+                        <?= Html::img( '@web' . $model->image_url, ['class' => 'img-responsive img-rounded']) ?>
+                    </p>
+                    <span class="news-content">
                     <?= $model->content ?>
                 </span>
+                </div>
             </div>
         </div>
     </div>
