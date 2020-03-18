@@ -12,7 +12,7 @@ class CovidController extends Controller
     public $layout = 'materialize';
 
     public function actionNews() {
-        $news = News::find()->where(['category_id' => 2])->all();
+        $news = News::find()->where(['category_id' => 6])->all();
 
         return $this->render('news', [
             'news' => $news,
