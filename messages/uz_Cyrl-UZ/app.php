@@ -32,5 +32,6 @@ return [
     'Contacts' => 'Алоқалар',
     'Phone' => 'Телефон',
     'No data found' => 'Маълумот топилмади',
-    'Main' => 'Асосий'
+    'Main' => 'Асосий',
+    'Follow us through our channel in Telegram' => 'Янгиликларни Telegram канали орқали кузатинг'
 ];

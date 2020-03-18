@@ -249,3 +249,14 @@ nav.primary-nav ul a {
 #materialbox-overlay {
   background-color: rgba(0,0,0, 0.95);
 }
+
+/* telegram */
+.telegram-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.telegram-container div {
+  margin-right: 10px;
+}

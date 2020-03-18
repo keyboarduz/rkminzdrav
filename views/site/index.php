@@ -91,6 +91,24 @@ $this->title = Yii::$app->params['organization.name'];
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="telegram-container">
+                        <div class="telegram-image">
+                            <span style="font-size: 3em; color: rgba(52,171,220,1);">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </div>
+                        <div class="telegram-title">
+                            <?= Html::a(
+                                Yii::t('app', 'Follow us through our channel in Telegram'),
+                                'https://t.me/qrdssm',
+                                ['target' => '_blank']
+                            )?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
