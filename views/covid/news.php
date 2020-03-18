@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $pageTitle;
                 <h5>COVID-19 интерактив харитаси</h5>
             </div>
             <div class="card-content">
-                <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="2019-nCoV" src="http://gisanddata.maps.arcgis.com/apps/Embed/index.html?webmap=14aa9e5660cf42b5b4b546dec6ceec7c&extent=77.3846,11.535,163.5174,52.8632&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></iframe>
+                <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="2019-nCoV" src="https://gisanddata.maps.arcgis.com/apps/Embed/index.html?webmap=14aa9e5660cf42b5b4b546dec6ceec7c&extent=77.3846,11.535,163.5174,52.8632&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></iframe>
                 манба: Johns Hopkins Center for Systems Science and Engineering
             </div>
         </div>
