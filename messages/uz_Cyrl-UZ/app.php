@@ -33,5 +33,7 @@ return [
     'Phone' => 'Телефон',
     'No data found' => 'Маълумот топилмади',
     'Main' => 'Асосий',
-    'Follow us through our channel in Telegram' => 'Янгиликларни Telegram канали орқали кузатинг'
+    'Follow us through our channel in Telegram' => 'Янгиликларни Telegram канали орқали кузатинг',
+
+    'COVID-19' => 'COVID-19',
 ];
