@@ -13,6 +13,9 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use app\assets\NewsAsset;
+
+NewsAsset::register($this);
 
 $this->title = $model->title;
 
@@ -20,23 +23,18 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['/
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="page-header">
-    <p><i class="fa fa-calendar"> <?= date('d-m-Y', $model->created_at) ?></i></p>
-    <h3><?= Html::encode($this->title)?></h3>
-</div>
-
 <div class="news-view">
     <div class="row">
-        <div class="col-sm-12">
-            <div class="panel">
-                <div class="panel-body">
-                    <p>
-                        <?= Html::img( '@web' . $model->image_url, ['class' => 'img-responsive img-rounded']) ?>
-                    </p>
-                    <span class="news-content">
+        <div class="col s12 m12">
+            <h1 class="news-title"><?= Html::encode($this->title)?></h1>
+            <p><i class="fa fa-calendar"> <?= date('d-m-Y', $model->created_at) ?></i></p>
+            <div class="card-panel">
+                <div class="center">
+                    <?= Html::img( '@web' . $model->image_url, ['class' => 'responsive-img']) ?>
+                </div>
+                <span class="news-content">
                     <?= $model->content ?>
                 </span>
-                </div>
             </div>
         </div>
     </div>

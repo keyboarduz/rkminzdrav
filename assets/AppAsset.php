@@ -23,10 +23,11 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        'js/helper-menu.js'
     ];
     public $depends = [
         'app\assets\FontAwesomeAsset',
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        'app\assets\MaterializeAsset'
     ];
 }

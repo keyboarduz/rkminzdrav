@@ -1,0 +1,20 @@
+.document-page h1 {
+    font-size: 1.8rem;
+}
+.document-page .document-card {
+    line-height: 23px;
+}
+.document-card .view-link {
+    font-size: 1.4rem;
+    color: rgba(0, 0, 255, 0.8);
+}
+.document-card a.btn-download i.fa{
+    transition: all .5s ease-in-out;
+}
+.document-card a.btn-download:hover i.fa {
+    transform: rotate(360deg);
+}
+.document-category {
+    margin-top: 85px;
+}
+

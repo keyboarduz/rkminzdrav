@@ -8,45 +8,34 @@ use yii\helpers\Html;
 
 $this->title = Yii::$app->params['organization.name'];
 ?>
-<div class="news">
+<div class="home-page">
     <div class="row">
-        <div class="col-sm-8">
-            <!-- Yangiliklar -->
-            <h4><?= Yii::t('app', 'News') ?></h4>
+        <!-- Yangiliklar -->
+        <div class="col s12 m12 l8 news-cards">
+            <h1><?= Yii::t('app', 'News') ?></h1>
             <div class="row">
                 <?php if ( $news ): ?>
                     <?php foreach ($news as $oneNews): ?>
-                    <div class="col-sm-12">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <!-- foto -->
-                                    <div class="col-sm-4">
-                                        <img src="<?=Url::to($oneNews->image_url)?>" class="img-responsive img-rounded">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><h4><?= Html::encode($oneNews->title)?></h4></a>
-                                                <p><?= $oneNews->description?></p>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <p class="date pull-left">
-                                                    <i class="fa fa-calendar"></i>
-
-                                                    <?= date('d-m-Y', $oneNews->created_at) ?>
-                                                </p>
-                                                <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn btn-default pull-right"><?= Yii::t('app', 'More') ?></a>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="col m12">
+                        <div class="card horizontal hoverable">
+                            <div class="card-image">
+                                <img src="<?=Url::to($oneNews->image_url)?>" class="">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <span class="card-title">
+                                        <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><?= Html::encode($oneNews->title)?></a>
+                                    </span>
+                                    <p><?= $oneNews->description?></p>
+                                    <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn btn-small light-blue pull-right"><?= Yii::t('app', 'More') ?></a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <div class="col-sm-12">
+                    <div class="col m4">
                         <div class="well">
                             <?= Yii::t('app', 'News not found') ?>
                         </div>
@@ -56,62 +45,48 @@ $this->title = Yii::$app->params['organization.name'];
         </div>
 
         <!-- foydali ma'lumotlar  -->
-        <div class="col-sm-4">
-            <h4><?= Yii::t('app', 'Useful sites') ?></h4>
-            <div class="panel useful-sites">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <img src="<?= Url::to('@web/images/my.gov.uz.png') ?>" class="img-responsive" alt="my.gov.uz" width="50">
-                            </div>
-                            <div class="col-sm-7">
-                                <a href="<?= Url::to('https://my.gov.uz') ?>">
-                                    Ягона интерактив давлат хизматлари портали
-                                </a>
-                            </div>
+        <div class="col s12 m5 l4 useful-sites">
+            <h1><?= Yii::t('app', 'Useful sites') ?></h1>
+            <div class="card">
+                <div class="card-body">
+                    <div class="u-s-item">
+                        <div class="u-s-img">
+                            <img src="<?= Url::to('@web/images/my.gov.uz.png') ?>" class="responsive-img" alt="my.gov.uz" width="50">
+                        </div>
+                        <div class="u-s-action">
+                            <a href="<?= Url::to('https://my.gov.uz') ?>">
+                                Ягона интерактив давлат хизматлари портали
+                            </a>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <img src="<?= Url::to('@web/images/president.png') ?>" class="img-responsive" alt="my.gov.uz">
-                            </div>
-                            <div class="col-sm-7">
-                                <a href="<?= Url::to('https://president.uz') ?>">
-                                    Ўзбекистон Республикаси Президенти веб сайти
-                                </a>
-                            </div>
+                    <div class="u-s-item">
+                        <div class="u-s-img">
+                            <img src="<?= Url::to('@web/images/president.png') ?>" class="responsive-img" alt="my.gov.uz">
+                        </div>
+                        <div class="u-s-action">
+                            <a href="<?= Url::to('https://president.uz') ?>">
+                                Ўзбекистон Республикаси Президенти веб сайти
+                            </a>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <img src="<?= Url::to('@web/images/ochiq_mal_por.png') ?>" class="img-responsive" alt="my.gov.uz">
-                            </div>
-                            <div class="col-sm-7">
-                                <a href="<?= Url::to('https://data.gov.uz/uz') ?>">
-                                    Ўзбекистон Республикаси очиқ маълумотлар портали
-                                </a>
-                            </div>
+                    <div class="u-s-item">
+                        <div class="u-s-img">
+                            <img src="<?= Url::to('@web/images/ochiq_mal_por.png') ?>" class="responsive-img" alt="my.gov.uz">
+                        </div>
+                        <div class="u-s-action">
+                            <a href="<?= Url::to('https://data.gov.uz/uz') ?>">
+                                Ўзбекистон Республикаси очиқ маълумотлар портали
+                            </a>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <img src="<?= Url::to('@web/images/harakatlar_strategiyasi.png') ?>" class="img-responsive" alt="my.gov.uz">
-                            </div>
-                            <div class="col-sm-7">
-                                <a href="<?= Url::to('https://strategy.gov.uz/uz') ?>">
-                                    Ҳаракатлар стратегияси
-                                </a>
-                            </div>
+                    <div class="u-s-item">
+                        <div class="u-s-img">
+                            <img src="<?= Url::to('@web/images/harakatlar_strategiyasi.png') ?>" class="responsive-img" alt="my.gov.uz">
+                        </div>
+                        <div class="u-s-action">
+                            <a href="<?= Url::to('https://strategy.gov.uz/uz') ?>">
+                                Ҳаракатлар стратегияси
+                            </a>
                         </div>
                     </div>
                 </div>

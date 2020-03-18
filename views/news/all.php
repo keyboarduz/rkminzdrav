@@ -15,49 +15,38 @@
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 use yii\helpers\Url;
+use app\assets\NewsAsset;
+
+NewsAsset::register($this);
 
 $this->title = Yii::t('app', 'News');
 
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="page-header">
-    <h3><?= Html::encode($this->title)?></h3>
-</div>
 
-<div class="row">
-    <div class="col-sm-12">
+<div class="row news-page">
+    <div class="col s12">
+        <h1><?= Html::encode($this->title)?></h1>
+
         <?php if ($news): ?>
-            <?php foreach ( $news as $oneNews ): ?>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <!-- foto -->
-                                    <div class="col-sm-4">
-                                        <img src="<?=Url::to($oneNews->image_url)?>" class="img-responsive img-rounded">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><h4><?= Html::encode($oneNews->title)?></h4></a>
-                                                <p><?= $oneNews->description?></p>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <p class="date pull-left">
-                                                    <i class="fa fa-calendar"></i>
-                                                    <?= date('d-m-Y', $oneNews->created_at) ?>
-                                                </p>
-                                                <a href="<?= Url::to(['/news/' . $oneNews->id]) ?>" class="btn btn-default pull-right"><?= Yii::t('app', 'More') ?></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="row">
+                <?php foreach ( $news as $oneNews ): ?>
+                    <div class="col s12 m4">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img src="<?=Url::to($oneNews->image_url)?>" class="">
+                                <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn-floating btn-large halfway-fab light-blue"><i class="fa fa-eye"></i></a>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">
+                                    <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><?= Html::encode($oneNews->title)?></a>
+                                </span>
+                                <p><?= $oneNews->description?></p>
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         <?php else: ?>
             <div class="well">
                 <p><?=Yii::t('app', 'News not found')?></p>
@@ -67,8 +56,12 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
-        <?= LinkPager::widget(['pagination' => $pages])?>
+    <div class="col s12 m12">
+        <?= LinkPager::widget([
+            'pagination' => $pages,
+            'nextPageLabel' => '<i class="fa fa-angle-right"></i>',
+            'prevPageLabel' => '<i class="fa fa-angle-left"></i>'
+        ])?>
     </div>
 </div>
 

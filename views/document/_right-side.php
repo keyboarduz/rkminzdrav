@@ -14,14 +14,10 @@ $countCategories = Document::find()
     ->all();
 ?>
 
-<?php
-//var_dump(Yii::$app->request->getUrl()); die;
-?>
-
-<div class="list-group">
+<div class="collection hoverable">
     <?php foreach ($documentCategories as $k => $v): ?>
         <?php if ($k == isset($countCategories[$k])): ?>
-            <a href="<?= Url::to(["/document/category/{$k}"]) ?>" class="list-group-item <?= "/document/category/{$k}" === Yii::$app->request->getUrl() ? 'active' : ''?>"><?= $v ?></a>
+            <a href="<?= Url::to(["/document/category/{$k}"]) ?>" class="collection-item <?= "/document/category/{$k}" === Yii::$app->request->getUrl() ? 'active' : ''?>"><?= $v ?></a>
         <?php endif; ?>
     <?php endforeach; ?>
 </div>

@@ -5,10 +5,11 @@ namespace app\controllers;
 use app\modules\admin\models\Organization;
 use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
+use yii\web\Controller;
 
-class OrganizationController extends \yii\web\Controller
+class OrganizationController extends Controller
 {
-    public $layout = 'minzd';
+    public $layout = 'materialize';
     public $defaultAction = 'republic-organizations';
 
     public function actionDistrictMedicalAssociations()

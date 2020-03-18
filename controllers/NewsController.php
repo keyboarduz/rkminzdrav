@@ -16,7 +16,7 @@ use yii\web\NotFoundHttpException;
 
 class NewsController extends Controller
 {
-    public $layout = 'minzd';
+    public $layout = 'materialize';
     public $defaultAction = 'all';
 
     public function actionAll() {
@@ -28,7 +28,7 @@ class NewsController extends Controller
 
         $pages = new Pagination([
             'totalCount' => $countQuery->count(),
-            'defaultPageSize' => 5,
+            'defaultPageSize' => 10,
         ]);
 
         $news = $query->offset($pages->offset)

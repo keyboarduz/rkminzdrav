@@ -14,7 +14,7 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
-    public $layout = 'minzd';
+    public $layout = 'materialize';
 
     /**
      * {@inheritdoc}

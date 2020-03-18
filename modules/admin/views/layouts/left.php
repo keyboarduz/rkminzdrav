@@ -41,7 +41,7 @@ $newContactCount = Contact::find()->where(['status' => Contact::STATUS_NEW])->co
                     ['label' => 'Menyu', 'options' => ['class' => 'header']],
                     ['label' => 'Foydalnuvchilar', 'icon' => 'users', 'url' => ['user/index']],
                     ['label' => 'Muassasalar', 'icon' => 'hospital-o', 'url' => ['organization/index']],
-                    ['label' => 'Qayta aloqa ' . ($newContactCount != 0 ? Html::tag('span', $newContactCount, ['class' => 'badge pull-right']) : ''), 'encode' => false, 'icon' => 'envelope', 'url' => ['contact/index']],
+                    ['label' => 'Qayta aloqa ' . ($newContactCount != 0 ? Html::tag('span', $newContactCount, ['class' => 'badge pull-right', 'id' => 'feedbackCount']) : ''), 'encode' => false, 'icon' => 'envelope', 'url' => ['contact/index']],
                     [
                         'label' => 'Yangiliklar',
                         'icon' => 'newspaper-o',

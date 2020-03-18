@@ -29,17 +29,17 @@ $config = [
     'components' => [
         'assetManager' => [
             'appendTimestamp' => true,
-            'bundles' => [
-                'dmstr\web\AdminLteAsset' => [
-                    'skin' => 'skin-black',
-                ],
-                'yii\bootstrap\BootstrapAsset' => substr($_SERVER['REQUEST_URI'], 0, 6) === '/admin' ? null : [
-                    'sourcePath' => null,
-                    'basePath' => '@webroot',
-                    'baseUrl' => '@web',
-                    'css' => ['css/bootstrap.css'],
-                ],
-            ],
+             'bundles' => [
+                 'dmstr\web\AdminLteAsset' => [
+                     'skin' => 'skin-black',
+                 ],
+                 'yii\bootstrap\BootstrapAsset' => substr($_SERVER['REQUEST_URI'], 0, 6) === '/admin' ? null : [
+                     'sourcePath' => null,
+                     'basePath' => '@webroot',
+                     'baseUrl' => '@web',
+                     'css' => ['css/bootstrap.css'],
+                 ],
+             ],
         ],
         /*'view' => [
             'theme' => [

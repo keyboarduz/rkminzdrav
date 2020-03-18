@@ -1,0 +1,11 @@
+.organization-page h1.page-title {
+    font-size: 1.8rem;
+}
+.organization-page .organization-name h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+.organization-page figure img {
+    display: block;
+    max-height: 300px;
+}

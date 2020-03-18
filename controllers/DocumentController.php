@@ -9,7 +9,7 @@ use yii\web\Controller;
 
 class DocumentController extends Controller
 {
-    public $layout = 'minzd';
+    public $layout = 'materialize';
     public $defaultAction = 'all';
 
     public function actionAll() {

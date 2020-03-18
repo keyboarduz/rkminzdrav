@@ -22,6 +22,7 @@ class AdminPanelAsset extends AssetBundle
 
     public $js = [
         'js/admin.js',
+        'js/sse.js',
     ];
 
     public $depends = [

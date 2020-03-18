@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'attribute' => 'status',
-                    'value' => $model->getStatuses()[10],
+                    'value' => $model->getStatuses()[$model->status],
                 ],
                 'viewed',
                 'created_at:datetime',
