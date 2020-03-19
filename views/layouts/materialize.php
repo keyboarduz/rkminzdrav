@@ -112,6 +112,7 @@ foreach ($countDocumentCategories as $k => $v) {
             <ul id="nav-mobile" class="sidenav light-blue lighten-2 white-text">
                 <li><a href="<?= Url::to(['/']) ?>"><?=Yii::t('app', 'Home')?></a></li>
                 <li><a href="<?= Url::to(['/news/all']) ?>"><?=Yii::t('app', 'News')?></a></li>
+                <li><a href="<?= Url::to(['/covid/news'])?>"><?=Yii::t('app', 'COVID-19')?></a></li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
                         <li>
