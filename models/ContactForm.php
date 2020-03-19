@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\GoogleRecaptchaV3;
 use app\modules\admin\models\Contact;
 use Yii;
 use yii\base\Model;
@@ -76,5 +77,15 @@ class ContactForm extends Model
             return $isValid;
         }
         return false;
+    }
+
+    public function validateRecaptcha($secretKey) {
+        if (! is_string($secretKey)) {
+            return false;
+        }
+
+        $gr = new GoogleRecaptchaV3($secretKey);
+
+        return $gr->isValidRequest();
     }
 }

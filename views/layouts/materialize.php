@@ -39,6 +39,8 @@ foreach ($countDocumentCategories as $k => $v) {
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
 
+    <?php $this->registerJsVar('site_key', Yii::$app->params['site_key']); ?>
+
     <?php $this->head() ?>
 </head>
 <body>

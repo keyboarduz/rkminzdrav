@@ -7,4 +7,8 @@ return [
     'supportEmail' => '',
     'senderEmail' => '',
     'senderName' => '',
+
+    /** Google recaptcha v3 */
+    'site_key' => '6LfLZ-IUAAAAAMprlFwqYid1nyO2LiHCba3Ll0JS',
+    'secret_key' => '6LfLZ-IUAAAAAIa0PvMpmgRy8Y4DCoSvEsIegYhG',
 ];

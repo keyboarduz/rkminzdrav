@@ -27,5 +27,6 @@ class SiteContactAsset extends AssetBundle
     public $depends = [
         'app\assets\AppAsset',
         LeafletAsset::class,
+        GoogleRecaptchaV3Asset::class,
     ];
 }

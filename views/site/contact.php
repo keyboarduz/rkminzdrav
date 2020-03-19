@@ -47,6 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <form action="<?=Url::to(['/site/contact'])?>" method="post">
 
                         <input type="hidden" name="<?=Yii::$app->request->csrfParam?>" value="<?=Yii::$app->request->csrfToken?>">
+                        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
 
                         <div class="input-field">
                             <input id="<?=$model->formName()?>-name" type="text" name="<?=$model->formName()?>[name]">
@@ -64,18 +65,17 @@ $this->params['breadcrumbs'][] = $this->title;
                             <textarea class="materialize-textarea" id="<?=$model->formName()?>-body" type="" name="<?=$model->formName()?>[body]"></textarea>
                             <label for="<?=$model->formName()?>-body"><?=$model->getAttributeLabel('body')?></label>
                         </div>
-                        <div class="input-field">
-                            <input id="<?=$model->formName()?>-subject" type="text" name="<?=$model->formName()?>[subject]">
-                            <label for="<?=$model->formName()?>-subject"><?=$model->getAttributeLabel('subject')?></label>
-                        </div>
 
                         <?=Captcha::widget([
                             'model' => $model,
                             'attribute' => 'verifyCode',
+                            'options' => [
+                                'autocomplete' => 'off'
+                            ]
                         ]);?>
 
                         <div class="form-group">
-                            <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                            <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn light-blue', 'name' => 'contact-button']) ?>
                         </div>
 
                     </form>
