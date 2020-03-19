@@ -86,6 +86,8 @@ class ContactForm extends Model
 
         $gr = new GoogleRecaptchaV3($secretKey);
 
+        Yii::debug($gr->getResult());
+
         return $gr->isValidRequest();
     }
 }
