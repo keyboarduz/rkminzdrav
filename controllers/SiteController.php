@@ -52,10 +52,6 @@ class SiteController extends Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
         ];
     }
 
@@ -120,19 +116,17 @@ class SiteController extends Controller
     {
 
         $model = new ContactForm();
+
         if ($model->load(Yii::$app->request->post())) {
+            $model->recaptcha = Yii::$app->request->post('g-recaptcha-response');
 
-            if (!$model->validateRecaptcha(Yii::$app->request->post('g-recaptcha-response'))) {
-                var_dump('error');
-            }
-
-            if ($model->contact(Yii::$app->params['adminEmail']))
-            {
+            if ($model->contact(Yii::$app->params['adminEmail'])) {
                 Yii::$app->session->setFlash('contactFormSubmitted');
 
                 return $this->refresh();
             }
         }
+
         return $this->render('contact', [
             'model' => $model,
         ]);

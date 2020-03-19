@@ -66,17 +66,14 @@ $this->params['breadcrumbs'][] = $this->title;
                             <label for="<?=$model->formName()?>-body"><?=$model->getAttributeLabel('body')?></label>
                         </div>
 
-                        <?=Captcha::widget([
-                            'model' => $model,
-                            'attribute' => 'verifyCode',
-                            'options' => [
-                                'autocomplete' => 'off'
-                            ]
-                        ]);?>
-
                         <div class="form-group">
                             <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn light-blue', 'name' => 'contact-button']) ?>
                         </div>
+
+                        <small>This site is protected by reCAPTCHA and the Google
+                            <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                            <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                        </small>
 
                     </form>
 
