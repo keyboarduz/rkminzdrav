@@ -64,9 +64,10 @@ class LoginForm extends Model
      * @param array $params the additional name-value pairs given in the rule
      */
     public function validateReCaptcha($attribute, $params) {
-        /*if (YII_ENV_DEV) {
+        if (! is_string($this->$attribute)) {
+            $this->addError($attribute, "{$this->$attribute}: satr bo'lishi kerak");
             return;
-        }*/
+        }
 
         $googleReCaptcha = new GoogleRecaptchaV3($this->$attribute);
 

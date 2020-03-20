@@ -1,11 +1,11 @@
 <?php
-use backend\assets\AppAsset;
 use yii\helpers\Html;
+use app\modules\admin\assets\AdminLoginAsset;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-\app\modules\admin\assets\AdminPanelAsset::register($this);
+AdminLoginAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
