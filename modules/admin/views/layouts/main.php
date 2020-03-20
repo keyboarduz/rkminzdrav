@@ -17,8 +17,6 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed201
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-
-    <?php $this->registerJsVar('site_key', Yii::$app->params['site_key']) ?>
     <?php $this->head() ?>
 </head>
 <body class="hold-transition <?= \dmstr\helpers\AdminLteHelper::skinClass() ?> sidebar-mini">
