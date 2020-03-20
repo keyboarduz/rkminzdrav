@@ -28,7 +28,7 @@ class LoginForm extends Model
     public function rules()
     {
         return [
-            ['recaptcha', 'validateReCaptcha', 'skipOnEmpty' => false, 'skipOnError' => false],
+            ['reCaptcha', 'validateReCaptcha', 'skipOnEmpty' => false, 'skipOnError' => false],
             // username and password are both required
             [['username', 'password'], 'required'],
             // rememberMe must be a boolean value
