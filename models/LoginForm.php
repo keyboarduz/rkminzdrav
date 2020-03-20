@@ -74,7 +74,7 @@ class LoginForm extends Model
             $this->addError($attribute, 'google recaptcha validatsiyadan o\'tmadi');
         }
 
-        if (YII_ENV_TEST)
+        if (!YII_ENV_PROD)
             Yii::debug($googleReCaptcha->getResult(), 'recaptcha');
     }
 
