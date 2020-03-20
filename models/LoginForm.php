@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\GoogleRecaptchaV3;
 use Yii;
 use yii\base\Model;
 
@@ -16,6 +17,7 @@ class LoginForm extends Model
     public $username;
     public $password;
     public $rememberMe = true;
+    public $reCaptcha;
 
     private $_user = false;
 
@@ -26,6 +28,7 @@ class LoginForm extends Model
     public function rules()
     {
         return [
+            ['recaptcha', 'validateReCaptcha', 'skipOnEmpty' => false, 'skipOnError' => false],
             // username and password are both required
             [['username', 'password'], 'required'],
             // rememberMe must be a boolean value
@@ -51,6 +54,28 @@ class LoginForm extends Model
                 $this->addError($attribute, 'Login yoki parol xato.');
             }
         }
+    }
+
+    /**
+     * Validates the password.
+     * This method serves as the inline validation for password.
+     *
+     * @param string $attribute the attribute currently being validated
+     * @param array $params the additional name-value pairs given in the rule
+     */
+    public function validateReCaptcha($attribute, $params) {
+        if (YII_ENV_DEV) {
+            return;
+        }
+
+        $googleReCaptcha = new GoogleRecaptchaV3($this->$attribute);
+
+        if (!$googleReCaptcha->isValidRequest()) {
+            $this->addError($attribute, 'google recaptcha validatsiyadan o\'tmadi');
+        }
+
+        if (YII_ENV_TEST)
+            Yii::debug($googleReCaptcha->getResult(), 'recaptcha');
     }
 
     /**

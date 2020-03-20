@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use Yii;
 use app\models\LoginForm;
 use app\modules\admin\models\Contact;
 use yii\web\Controller;
@@ -32,8 +33,13 @@ class DefaultController extends Controller
 
         $model = new LoginForm();
 
-        if ($model->load(\Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect('/admin/default');
+        if ($model->load(\Yii::$app->request->post())) {
+            $model->reCaptcha = Yii::$app->getRequest()->post('g-recaptcha-response');
+
+            if ($model->login()) {
+
+                return $this->redirect('/admin/default');
+            }
         }
 
         $model->password = '';

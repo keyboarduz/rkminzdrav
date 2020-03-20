@@ -20,6 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'options' => ['rows' => 6],
             'preset' => 'full',
             'kcfinder'=>true,
+            'clientOptions' => [
+                'stylesSet' => ['name' => 'Custom Image', 'element' => 'img', 'attributes' => ['class' => 'responsive-img']]
+            ]
         ]) ?>
 
         <?= Html::submitButton('Saqlash', ['class' => 'btn btn-flat btn-success']) ?>

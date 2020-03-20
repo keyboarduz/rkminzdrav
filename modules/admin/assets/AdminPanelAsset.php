@@ -9,6 +9,7 @@
 namespace app\modules\admin\assets;
 
 
+use app\assets\GoogleRecaptchaV3Asset;
 use yii\web\AssetBundle;
 
 class AdminPanelAsset extends AssetBundle
@@ -26,7 +27,8 @@ class AdminPanelAsset extends AssetBundle
     ];
 
     public $depends = [
-       AdminLteAsset::class,
+        AdminLteAsset::class,
+        GoogleRecaptchaV3Asset::class,
     ];
 
 }

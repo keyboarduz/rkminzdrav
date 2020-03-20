@@ -28,6 +28,7 @@ class ContactForm extends Model
             ['recaptcha', 'validateRecaptcha', 'skipOnEmpty' => false, 'skipOnError' => false],
             // name, email, subject and body are required
             [['name', 'email', 'subject', 'body'], 'required'],
+            [['name', 'subject', 'body'], 'string'],
             // email has to be a valid email address
             ['email', 'email'],
         ];
@@ -74,6 +75,7 @@ class ContactForm extends Model
 
             return $isValid;
         }
+
         return false;
     }
 
@@ -85,7 +87,7 @@ class ContactForm extends Model
         $gr = new GoogleRecaptchaV3($this->$attribute);
 
         $isValid = $gr->isValidRequest();
-        Yii::debug($gr->getResult());
+        if (YII_DEBUG) Yii::debug($gr->getResult());
 
         if (!$isValid) {
             $this->addError($attribute, 'validate recaptcha error');
