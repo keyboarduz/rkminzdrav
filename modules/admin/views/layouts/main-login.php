@@ -16,6 +16,7 @@ use yii\helpers\Html;
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->registerJsVar('site_key', Yii::$app->params['site_key']) ?>
+    <?php $this->registerJsVar('google_recaptcha_action', '/admin/default/login') ?>
     <?php $this->head() ?>
 </head>
 <body class="login-page">

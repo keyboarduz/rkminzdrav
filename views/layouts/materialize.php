@@ -40,6 +40,7 @@ foreach ($countDocumentCategories as $k => $v) {
     <title><?= Html::encode($this->title) ?></title>
 
     <?php $this->registerJsVar('site_key', Yii::$app->params['site_key']); ?>
+    <?php $this->registerJsVar('google_recaptcha_action', '/site/contact') ?>
 
     <?php $this->head() ?>
 </head>

@@ -29,6 +29,8 @@ $fieldOptions2 = [
 
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
 
+        <?= Html::hiddenInput('g-recaptcha-response', null, ['id' => 'g-recaptcha-response']) ?>
+
         <?= $form
             ->field($model, 'username', $fieldOptions1)
             ->label(false)
