@@ -24,7 +24,7 @@ $this->title = Yii::$app->params['organization.name'];
                             <div class="card-stacked">
                                 <div class="card-content">
                                     <span class="card-title">
-                                        <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><?= Html::encode($oneNews->title)?></a>
+                                        <?= Html::encode($oneNews->title)?>
                                     </span>
                                     <p><?= $oneNews->description?></p>
                                     <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn btn-small light-blue pull-right"><?= Yii::t('app', 'More') ?></a>

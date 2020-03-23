@@ -187,7 +187,40 @@ foreach ($countDocumentCategories as $k => $v) {
     </div>
     <div class="footer-copyright">
         <div class="container">
-                <p class=""><a href="/">Қорақалпоғистон Республикаси Соғлиқни Сақлаш Вазирлиги</a>  <?= date('Y') ?></p>
+            <div class="row">
+                <div class="col s11">
+                    <p class=""><a href="/">Қорақалпоғистон Республикаси Соғлиқни Сақлаш Вазирлиги</a>  <?= date('Y') ?></p>
+                </div>
+                <div class="col s1">
+                    <!-- START WWW.UZ TOP-RATING -->
+                    <SCRIPT language="javascript" type="text/javascript">
+                        <!--
+                        top_js="1.0";top_r="id=44587&r="+escape(document.referrer)+"&pg="+escape(window.location.href);document.cookie="smart_top=1; path=/"; top_r+="&c="+(document.cookie?"Y":"N")
+                        //-->
+                    </SCRIPT>
+                    <SCRIPT language="javascript1.1" type="text/javascript">
+                        <!--
+                        top_js="1.1";top_r+="&j="+(navigator.javaEnabled()?"Y":"N")
+                        //-->
+                    </SCRIPT>
+                    <SCRIPT language="javascript1.2" type="text/javascript">
+                        <!--
+                        top_js="1.2";top_r+="&wh="+screen.width+'x'+screen.height+"&px="+
+                            (((navigator.appName.substring(0,3)=="Mic"))?screen.colorDepth:screen.pixelDepth)
+                        //-->
+                    </SCRIPT>
+                    <SCRIPT language="javascript1.3" type="text/javascript">
+                        <!--
+                        top_js="1.3";
+                        //-->
+                    </SCRIPT>
+                    <SCRIPT language="JavaScript" type="text/javascript">
+                        <!--
+                        top_rat="&col=F7AE00&t=ffffff&p=0E418F";top_r+="&js="+top_js+"";document.write('<a href="http://www.uz/ru/res/visitor/index?id=44587" target=_top><img src="https://cnt0.www.uz/counter/collect?'+top_r+top_rat+'" width=88 height=31 border=0 alt="Топ рейтинг www.uz"></a>')//-->
+                    </SCRIPT><NOSCRIPT><A href="http://www.uz/ru/res/visitor/index?id=44587" target=_top><IMG height=31 src="https://cnt0.www.uz/counter/collect?id=44587&pg=http%3A//uzinfocom.uz&&col=F7AE00&amp;t=ffffff&amp;p=0E418F" width=88 border=0 alt="Топ рейтинг www.uz"></A></NOSCRIPT>
+                    <!-- FINISH WWW.UZ TOP-RATING -->
+                </div>
+            </div>
         </div>
     </div>
 </footer>

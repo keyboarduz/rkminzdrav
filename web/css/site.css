@@ -22,6 +22,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: rgba(247, 249, 252, 1);
 }
 body > .main {
   flex: 1 0 auto;
@@ -198,7 +199,7 @@ nav.primary-nav ul a {
 /*** Breadcrumbs ***/
 .breadcrumb {
   font-size: 16px;
-  color: rgba(0, 0, 255, .8);
+  color: rgba(0, 0, 0, .6);
 }
 .breadcrumb:last-child {
   color: rgba(0, 0, 0, .5);
@@ -222,6 +223,11 @@ nav.primary-nav ul a {
   font-size: 1.3rem;
   margin: 0 10px 0 8px;
   -webkit-font-smoothing: antialiased;
+}
+
+/** breadcrumbs dan box-shadow ni o'shirish */
+.breadcrumb-nav nav {
+  box-shadow: none !important;
 }
 
 /*** pagination ***/
