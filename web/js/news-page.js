@@ -2,13 +2,16 @@ let newsGrid = document.querySelector('.news-grid');
 let masonry;
 
 if (newsGrid) {
-    imagesLoaded(newsGrid, function () {
-        // init Isotope after all images have loaded
-        masonry = new Masonry( newsGrid, {
-            // options
-            itemSelector: '.news-grid-item',
-            columnWidth: '.news-grid-sizer',
-            percentPosition: true
-        });
+
+    masonry = new Masonry( newsGrid, {
+        // options
+        itemSelector: '.news-grid-item',
+        columnWidth: '.news-grid-sizer',
+        percentPosition: true
+    });
+
+    imagesLoaded(newsGrid).on('progress', function () {
+        // layout Masonry after each image loads
+        masonry.layout();
     });
 }
