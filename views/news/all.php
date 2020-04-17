@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="card hoverable news-grid-item-card">
                                     <div class="card-image">
                                         <img src="<?=Url::to($oneNews->image_url)?>" class="">
-                                        <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn-floating btn-large halfway-fab light-blue"><i class="fa fa-eye"></i></a>
+                                        <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn-floating btn-large halfway-fab light-blue"><i class="material-icons">visibility</i></a>
                                     </div>
                                     <div class="card-content">
                                     <span class="card-title">

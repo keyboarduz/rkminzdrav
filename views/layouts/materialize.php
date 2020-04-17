@@ -186,10 +186,10 @@ foreach ($countDocumentCategories as $k => $v) {
     <div class="footer-copyright">
         <div class="container">
             <div class="row">
-                <div class="col s11">
+                <div class="col s9 m11">
                     <p class=""><a href="/">Қорақалпоғистон Республикаси Соғлиқни Сақлаш Вазирлиги</a>  <?= date('Y') ?></p>
                 </div>
-                <div class="col s1">
+                <div class="col s3 m1">
                     <!-- START WWW.UZ TOP-RATING -->
                     <SCRIPT language="javascript" type="text/javascript">
                         <!--
