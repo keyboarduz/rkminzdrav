@@ -9,6 +9,7 @@
 namespace app\assets;
 
 
+use app\assets\package\MasonryAsset;
 use yii\web\AssetBundle;
 
 class NewsAsset extends AssetBundle
@@ -20,7 +21,12 @@ class NewsAsset extends AssetBundle
         'css/news-page.css',
     ];
 
+    public $js = [
+        'js/news-page.js',
+    ];
+
     public $depends = [
         'app\assets\AppAsset',
+        MasonryAsset::class,
     ];
 }

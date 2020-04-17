@@ -30,22 +30,26 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php if ($news): ?>
             <div class="row">
-                <?php foreach ( $news as $oneNews ): ?>
-                    <div class="col s12 m4">
-                        <div class="card hoverable">
-                            <div class="card-image">
-                                <img src="<?=Url::to($oneNews->image_url)?>" class="">
-                                <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn-floating btn-large halfway-fab light-blue"><i class="fa fa-eye"></i></a>
+                <div class="col s12">
+                    <div class="news-grid">
+                        <?php foreach ( $news as $oneNews ): ?>
+                            <div class="news-grid-item">
+                                <div class="card hoverable news-grid-item-card">
+                                    <div class="card-image">
+                                        <img src="<?=Url::to($oneNews->image_url)?>" class="">
+                                        <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn-floating btn-large halfway-fab light-blue"><i class="fa fa-eye"></i></a>
+                                    </div>
+                                    <div class="card-content">
+                                    <span class="card-title">
+                                        <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><?= Html::encode($oneNews->title)?></a>
+                                    </span>
+                                        <p><?= $oneNews->description?></p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <span class="card-title">
-                                    <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><?= Html::encode($oneNews->title)?></a>
-                                </span>
-                                <p><?= $oneNews->description?></p>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
-                <?php endforeach; ?>
+                </div>
             </div>
         <?php else: ?>
             <div class="well">
