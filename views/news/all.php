@@ -32,9 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="row">
                 <div class="col s12">
                     <div class="news-grid">
-                        <div class="news-grid-sizer"></div>
+                        <div class="news-grid-sizer col s12 m6 l4"></div>
                         <?php foreach ( $news as $oneNews ): ?>
-                            <div class="news-grid-item">
+                            <div class="news-grid-item col s12 m6 l4">
                                 <div class="card hoverable news-grid-item-card">
                                     <div class="card-image">
                                         <img src="<?=Url::to($oneNews->image_url)?>" class="">
