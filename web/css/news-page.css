@@ -14,5 +14,6 @@
     width: 33%;
 }
 .news-grid-item-card {
-    margin: 5px;
+    margin: 8px;
+    /*margin-bottom: 8px;*/
 }
