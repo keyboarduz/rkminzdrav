@@ -15,6 +15,10 @@ class MasonryAsset extends AssetBundle
     {
         parent::init();
 
+        // https://masonry.desandro.com/
         $this->js[] = 'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.' . (YII_ENV === 'prod' ? 'min.js'  : 'js');
+
+        // https://imagesloaded.desandro.com/
+        $this->js[] = 'https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.' . (YII_ENV === 'prod' ? 'min.js'  : 'js');
     }
 }

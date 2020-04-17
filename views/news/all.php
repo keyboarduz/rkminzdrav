@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="row">
                 <div class="col s12">
                     <div class="news-grid">
+                        <div class="news-grid-sizer"></div>
                         <?php foreach ( $news as $oneNews ): ?>
                             <div class="news-grid-item">
                                 <div class="card hoverable news-grid-item-card">
