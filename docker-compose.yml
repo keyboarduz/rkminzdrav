@@ -11,7 +11,7 @@ services:
       - "./docker/conf/apache/etc/apache2/sites-available/:/etc/apache2/sites-available/"
       - "./docker/conf/php/usr/local/etc/php/conf.d/:/usr/local/etc/php/conf.d/"
     ports:
-      - '8080:80'
+      - '8081:80'
     working_dir: /var/www/html
 
   db:

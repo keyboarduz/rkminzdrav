@@ -69,7 +69,7 @@ $model->created_at = is_int($model->created_at) ? date('d.m.Y', $model->created_
             <?= $form->field($model, 'content')->widget(CKEditor::class, [
                 'options' => ['rows' => 6],
                 'preset' => 'full',
-                'kcfinder'=>true,
+                'kcfinder'=> true,
             ]) ?>
 
     </div>

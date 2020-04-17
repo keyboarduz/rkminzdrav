@@ -4,3 +4,8 @@
 .news-view h1.news-title {
     font-size: 1.8rem;
 }
+
+.news-content img {
+    max-width: 100%;
+    /*height: auto;*/
+}
