@@ -158,10 +158,8 @@ foreach ($countDocumentCategories as $k => $v) {
                 <li><a href="<?= Url::to(['/site/contact']) ?>"><?=Yii::t('app', 'Contact')?></a></li>
             </ul>
             <!-- nav Mobile trigger -->
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger right">
-                <i class="fa fa-minus fa-2x"></i>
-                <i class="fa fa-minus fa-2x"></i>
-                <i class="fa fa-minus fa-2x"></i>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
             </a>
         </div>
     </nav>

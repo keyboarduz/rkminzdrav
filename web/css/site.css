@@ -127,15 +127,6 @@ nav :focus {
   outline: none;
 }
 
-/*** Mobile menu ikonkasi uchun ***/
-a.sidenav-trigger {
-  margin-top: 17px;
-}
-a.sidenav-trigger i.fa{
-  height: 10px;
-  line-height: 10px;
-  display: block;
-}
 .page-footer{
   background-color: #444;
 }
