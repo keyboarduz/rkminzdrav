@@ -20,14 +20,14 @@ NewsAsset::register($this);
 $this->title = $model->title;
 
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['/news/all']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $model->id;
 ?>
 
 <div class="news-view">
     <div class="row">
         <div class="col s12 m12">
             <h1 class="news-title"><?= Html::encode($this->title)?></h1>
-            <p><i class="fa fa-calendar"> <?= date('d-m-Y', $model->created_at) ?></i></p>
+            <p><i class="material-icons">date_range</i> <?= date('d-m-Y', $model->created_at) ?></p>
             <div class="card-panel">
                 <div class="center">
                     <?= Html::img( '@web' . $model->image_url, ['class' => 'responsive-img']) ?>
