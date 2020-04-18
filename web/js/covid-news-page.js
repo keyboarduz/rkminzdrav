@@ -1,16 +1,16 @@
-let newsGrid = document.querySelector('.grid');
+let covidNewsGrid = document.querySelector('.grid');
 let masonry;
 
-if (newsGrid) {
+if (covidNewsGrid) {
 
-    masonry = new Masonry( newsGrid, {
+    masonry = new Masonry( covidNewsGrid, {
         // options
         itemSelector: '.grid-item',
         columnWidth: '.grid-sizer',
         percentPosition: true
     });
 
-    imagesLoaded(newsGrid).on('progress', function () {
+    imagesLoaded(covidNewsGrid).on('progress', function () {
         // layout Masonry after each image loads
         masonry.layout();
     });

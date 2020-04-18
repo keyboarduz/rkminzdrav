@@ -13,7 +13,7 @@ class CovidController extends Controller
 
     public function actionNews() {
         $news = News::find()
-            ->where(['category_id' => 6])
+            ->where(['category_id' => 2])
             ->orderBy('created_at DESC')
             ->all();
 

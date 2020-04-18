@@ -9,11 +9,7 @@
     max-width: 100%;
     /*height: auto;*/
 }
-.news-grid-sizer,
-.news-grid-item {
-    width: 33%;
-}
-.news-grid-item-card {
-    margin: 8px;
-    /*margin-bottom: 8px;*/
+.grid-sizer,
+.grid-item {
+    /*width: 33%;*/
 }

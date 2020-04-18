@@ -31,19 +31,19 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php if ($news): ?>
             <div class="row">
                 <div class="col s12">
-                    <div class="news-grid">
-                        <div class="news-grid-sizer col s12 m6 l4"></div>
+                    <div class="row grid">
+                        <div class="grid-sizer col s12 m6 l4 xl3"></div>
                         <?php foreach ( $news as $oneNews ): ?>
-                            <div class="news-grid-item col s12 m6 l4">
-                                <div class="card hoverable news-grid-item-card">
+                            <div class="grid-item col s12 m6 l4 xl3">
+                                <div class="card hoverable">
                                     <div class="card-image">
                                         <img src="<?=Url::to($oneNews->image_url)?>" class="">
                                         <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn-floating btn-large halfway-fab light-blue"><i class="material-icons">visibility</i></a>
                                     </div>
                                     <div class="card-content">
-                                    <span class="card-title">
-                                        <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><?= Html::encode($oneNews->title)?></a>
-                                    </span>
+                                        <span class="card-title">
+                                            <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><?= Html::encode($oneNews->title)?></a>
+                                        </span>
                                         <p><?= $oneNews->description?></p>
                                     </div>
                                 </div>
