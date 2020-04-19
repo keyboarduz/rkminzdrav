@@ -4,11 +4,15 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
 use app\modules\admin\models\Category;
+use app\assets\TinymceAsset;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\News */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $uploadModel \app\modules\admin\models\form\UploadForm */
+
+TinymceAsset::register($this);
+$this->registerJsFile('/js/admin-news-form.js', ['depends' => [TinymceAsset::class]]);
 
 $enableClientValidationForFile = true;
 $styleDisplayForFileInput = 'block';
@@ -66,11 +70,7 @@ $model->created_at = is_int($model->created_at) ? date('d.m.Y', $model->created_
 
         <?= $form->field($model, 'description')->textarea(['rows' => 3]); ?>
 
-            <?= $form->field($model, 'content')->widget(CKEditor::class, [
-                'options' => ['rows' => 6],
-                'preset' => 'full',
-                'kcfinder'=> true,
-            ]) ?>
+        <?= $form->field($model, 'content')->textarea(['id' => 'contentArea']) ?>
 
     </div>
     <div class="box-footer">

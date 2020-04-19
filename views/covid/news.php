@@ -1,10 +1,12 @@
 <?php
 /** @var \yii\web\View $this */
 /** @var \app\modules\admin\models\News[] $news */
+/** @var array $covidData */
 
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\assets\CovidNewsAsset;
+use app\components\widgets\covid19\Covid19;
 
 CovidNewsAsset::register($this);
 
@@ -20,6 +22,11 @@ $this->params['breadcrumbs'][] = $pageTitle;
             <div class="row">
                 <div class="col s12">
                     <div class="row grid">
+                        <?php if ($covidData):?>
+                            <div class="stamp col s12 m6 l4 xl3">
+                                <?= Covid19::widget(['covidData' => $covidData]) ?>
+                            </div>
+                        <?php endif; ?>
                         <div class="grid-sizer col s12 m6 l4 xl3"></div>
                         <?php foreach ( $news as $oneNews ): ?>
                             <div class="grid-item col s12 m6 l4 xl3">

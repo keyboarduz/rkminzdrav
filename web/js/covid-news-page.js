@@ -7,7 +7,8 @@ if (covidNewsGrid) {
         // options
         itemSelector: '.grid-item',
         columnWidth: '.grid-sizer',
-        percentPosition: true
+        percentPosition: true,
+        stamp: '.stamp'
     });
 
     imagesLoaded(covidNewsGrid).on('progress', function () {
