@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\widgets\covid19;
+namespace app\components\widgets\covid19\src;
 
 
 use yii\base\InvalidArgumentException;
@@ -10,10 +10,13 @@ class Covid19 extends Widget
 {
     public $covidData;
     public $cardImage = true;
+    /** @var Covid19Asset */
+    public $assetInstance;
 
     public function init()
     {
         parent::init();
+        $this->assetInstance = Covid19Asset::register($this->getView());
 
         if ($this->covidData === null || !is_array($this->covidData)) {
             throw new InvalidArgumentException('undefined "covidData"');

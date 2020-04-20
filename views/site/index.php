@@ -5,7 +5,7 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
-use app\components\widgets\covid19\Covid19;
+use app\components\widgets\covid19\src\Covid19;
 
 $this->title = Yii::$app->params['organization.name'];
 ?>

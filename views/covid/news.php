@@ -6,7 +6,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\assets\CovidNewsAsset;
-use app\components\widgets\covid19\Covid19;
+use app\components\widgets\covid19\src\Covid19;
 
 CovidNewsAsset::register($this);
 
