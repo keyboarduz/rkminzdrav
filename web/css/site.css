@@ -18,6 +18,7 @@ body {
   height: 100%;
   font-family: 'Fira Sans', 'Roboto', sans-serif;
   font-style: normal;
+  background: url("../images/oriental.png");
 }
 body {
   display: flex;
