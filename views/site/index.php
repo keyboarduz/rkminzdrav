@@ -24,6 +24,7 @@ $this->title = Yii::$app->params['organization.name'];
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
+                                    <span class="blue-grey-text text-lighten-2" style="font-size: 13px"><i class="material-icons tiny">date_range</i> <?= date('d.m.Y', $oneNews->created_at) ?></span>
                                     <span class="card-title">
                                         <?= Html::encode($oneNews->title)?>
                                     </span>

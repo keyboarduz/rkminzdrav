@@ -41,8 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn-floating btn-large halfway-fab light-blue"><i class="material-icons">visibility</i></a>
                                     </div>
                                     <div class="card-content">
+                                        <span class="blue-grey-text text-lighten-2" style="font-size: 13px"><i class="material-icons tiny">date_range</i> <?= date('d.m.Y', $oneNews->created_at) ?></span>
                                         <span class="card-title">
-                                            <a href="<?= Url::to('/news/' . $oneNews->id) ?>"><?= Html::encode($oneNews->title)?></a>
+                                            <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="black-text"><?= Html::encode($oneNews->title)?></a>
                                         </span>
                                         <p><?= $oneNews->description?></p>
                                     </div>
