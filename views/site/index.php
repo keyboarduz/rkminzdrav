@@ -5,6 +5,7 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
+use app\components\widgets\covid19\Covid19;
 
 $this->title = Yii::$app->params['organization.name'];
 ?>
@@ -45,7 +46,12 @@ $this->title = Yii::$app->params['organization.name'];
         </div>
 
         <!-- foydali ma'lumotlar  -->
-        <div class="col s12 m5 l4 useful-sites">
+        <div class="col s12 m12 l4 useful-sites">
+            <h1>Covid-19</h1>
+            <?php if(isset($covidData) && $covidData): ?>
+                <?= Covid19::widget(['covidData' => $covidData, 'cardImage' => false]); ?>
+            <?php endif; ?>
+
             <h1><?= Yii::t('app', 'Useful sites') ?></h1>
             <div class="card">
                 <div class="card-body">

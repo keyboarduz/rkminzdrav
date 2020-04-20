@@ -9,6 +9,7 @@ use yii\base\Widget;
 class Covid19 extends Widget
 {
     public $covidData;
+    public $cardImage = true;
 
     public function init()
     {
@@ -24,7 +25,7 @@ class Covid19 extends Widget
     public function run()
     {
         return $this->render('covid-card', [
-            'covidData' => $this->covidData,
+            '_self' => $this,
         ]);
     }
 }

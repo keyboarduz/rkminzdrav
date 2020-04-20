@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\repository\CovidRepository;
 use app\models\User;
 use app\modules\admin\models\News;
 use Yii;
@@ -45,6 +46,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $cache = Yii::$app->getCache();
+
+        $covidData = $cache->get('covidData');
+        if ($covidData === false || !$covidData) {
+            $covidData = CovidRepository::getCovidData();
+            $cache->set('covidData', $covidData, 60*10);
+        }
+
         $news = News::find()
             ->where(['status' => News::STATUS_ACTIVE])
             ->orderBy('created_at DESC')
@@ -53,6 +62,7 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'news' => $news,
+            'covidData' => $covidData,
         ]);
     }
 

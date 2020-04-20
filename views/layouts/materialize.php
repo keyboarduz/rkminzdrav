@@ -65,7 +65,7 @@ foreach ($countDocumentCategories as $k => $v) {
                     Ишонч телефони:
                     <br>
                     <span style="color: #1725d0;">
-                        <i class="fa fa-phone-square" style="font-size: 18px; color: #0806ff;"></i>
+                        <i class="material-icons">headset_mic</i>
                         +998 (61) 226-00-48
                     </span>
                 </p>

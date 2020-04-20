@@ -1,10 +1,12 @@
 <?php
-/** @var array $covidData */
+/** @var \app\components\widgets\covid19\Covid19 $_self */
 ?>
 <div class="card hoverable">
-    <div class="card-image">
-        <img src="/images/covid.jpeg">
-    </div>
+    <?php if ($_self->cardImage): ?>
+        <div class="card-image">
+            <img src="/images/covid.jpeg">
+        </div>
+    <?php endif; ?>
     <div class="card-content">
         <span class="card-title">
             Коронавирус Ўзбекистонда
@@ -14,21 +16,21 @@
                 <i class="material-icons circle red">sentiment_dissatisfied</i>
                 <span class="title"><?= Yii::t('app/covid', 'Confirmed') ?></span>
                 <p>
-                    <span class="covid-n"><?=$covidData['confirmed']?></span>
+                    <span class="covid-n"><?=$_self->covidData['confirmed']?></span>
                 </p>
             </li>
             <li class="collection-item avatar green-text">
                 <i class="material-icons circle green">sentiment_very_satisfied</i>
                 <span class="title"><?= Yii::t('app/covid', 'Recovered') ?></span>
                 <p>
-                    <span class="covid-n"><?=$covidData['recovered']?></span>
+                    <span class="covid-n"><?=$_self->covidData['recovered']?></span>
                 </p>
             </li>
             <li class="collection-item avatar">
                 <i class="material-icons circle">sentiment_very_dissatisfied</i>
                 <span class="title"><?= Yii::t('app/covid', 'Deaths') ?></span>
                 <p>
-                    <span class="covid-n"><?=$covidData['deaths']?></span>
+                    <span class="covid-n"><?=$_self->covidData['deaths']?></span>
                 </p>
             </li>
         </ul>
