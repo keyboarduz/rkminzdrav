@@ -81,7 +81,7 @@ foreach ($countDocumentCategories as $k => $v) {
                 <ul class="left hide-on-med-and-down">
                     <!--                <li><a href="--><?//= Url::to(['/']) ?><!--">--><?//=Yii::t('app', 'Home')?><!--</a></li>-->
                     <li><a href="<?= Url::to(['/news/all']) ?>"><?=Yii::t('app', 'News')?></a></li>
-                    <li class="red darken-2"><a href="<?= Url::to(['/covid/news'])?>"><?=Yii::t('app', 'COVID-19')?></a></li>
+                    <li><a href="<?= Url::to(['/covid/news'])?>"><?=Yii::t('app', 'COVID-19')?></a></li>
                     <li>
                         <a href="<?= Url::to(['/document']) ?>" class="dropdown-trigger" data-target="dropdownDocument">
                             <?=Yii::t('app', 'Documents')?>
