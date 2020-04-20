@@ -16,7 +16,6 @@
 html,
 body {
   height: 100%;
-  /*font-family: 'Roboto', sans-serif;*/
   font-family: 'Open Sans', 'Roboto', sans-serif;
   font-style: normal;
 }
@@ -105,8 +104,13 @@ a.desc:after {
 .news-view .panel {
   padding: 15px;
 }
+
+.news-view .card-panel, .news-content,
 .news-view .panel .news-content {
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 31px;
+  font-family: 'PT Serif', serif;
 }
 @media only screen and (min-width: 768px) {
   .dropdown:hover .dropdown-menu {
