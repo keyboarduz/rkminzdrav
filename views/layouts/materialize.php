@@ -48,7 +48,7 @@ foreach ($countDocumentCategories as $k => $v) {
 <?php $this->beginBody() ?>
 
 <header>
-    <div class="top-header fluid-container hide-on-small-only">
+    <div id="topHeader" class="top-header fluid-container hide-on-small-only">
         <div class="row">
             <div class="col m9">
                 <a href="<?= Url::to(['/']) ?>" class="logo-link">
@@ -74,95 +74,97 @@ foreach ($countDocumentCategories as $k => $v) {
     </div>
 
     <!-- Navbar -->
-    <nav class="light-blue primary-nav">
-        <div class="nav-wrapper">
-            <a href="<?=Url::to(['/'])?>" class="brand-logo hide-on-med-and-up">ҚРССВ</a>
-            <ul class="left hide-on-med-and-down">
-                <li><a href="<?= Url::to(['/']) ?>"><?=Yii::t('app', 'Home')?></a></li>
-                <li><a href="<?= Url::to(['/news/all']) ?>"><?=Yii::t('app', 'News')?></a></li>
-                <li><a href="<?= Url::to(['/covid/news'])?>"><?=Yii::t('app', 'COVID-19')?></a></li>
-                <li>
-                    <a href="<?= Url::to(['/document']) ?>" class="dropdown-trigger" data-target="dropdownDocument">
-                        <?=Yii::t('app', 'Documents')?>
-                    </a>
-                    <ul id="dropdownDocument" class="dropdown-content light-blue">
-                        <?=$documentMenuHtml?>
-                    </ul>
-                </li>
-                <li>
-                    <a href="<?= Url::to(['/organization/republic-organizations']) ?>" class="dropdown-trigger" data-target="dropdownOrganization">
-                        <?=Yii::t('app', 'Organizations')?>
-                    </a>
-                    <ul id="dropdownOrganization" class="dropdown-content light-blue">
-                        <li><a href="<?=Url::to(['/organization/republic-organizations'])?>"><?=Yii::t('app', 'Republic organizations')?></a></li>
-                        <li><a href="<?= Url::to(['/organization/district-medical-associations']) ?>"><?=Yii::t('app', 'District medical associations')?></a></li>
-                    </ul>
-                </li>
-                <li><a href="<?= Url::to(['/']) ?>"><?=Yii::t('app', 'Announcement')?></a></li>
-                <li>
-                    <a href="<?= Url::to(['/ministry']) ?>" class="dropdown-trigger" data-target="dropdownMinistry">
-                        <?=Yii::t('app', 'Ministry')?>
-                    </a>
-                    <ul id="dropdownMinistry" class="dropdown-content light-blue">
-                        <li><a href="<?=Url::to(['/ministry/general-information'])?>"><?=Yii::t('app', 'General information')?></a></li>
-                        <li><a href="<?=Url::to(['/ministry/leadership'])?>"><?=Yii::t('app', 'Leadership')?></a></li>
-                    </ul>
-                </li>
-                <li><a href="<?= Url::to(['/site/contact']) ?>"><?=Yii::t('app', 'Contact')?></a></li>
-            </ul>
+    <div id="navbarContainer">
+        <nav class="light-blue darken-2 primary-nav">
+            <div class="nav-wrapper">
+                <a href="<?=Url::to(['/'])?>" class="brand-logo hide-on-med-and-up">ҚРССВ</a>
+                <ul class="left hide-on-med-and-down">
+                    <!--                <li><a href="--><?//= Url::to(['/']) ?><!--">--><?//=Yii::t('app', 'Home')?><!--</a></li>-->
+                    <li><a href="<?= Url::to(['/news/all']) ?>"><?=Yii::t('app', 'News')?></a></li>
+                    <li class="red darken-2"><a href="<?= Url::to(['/covid/news'])?>"><?=Yii::t('app', 'COVID-19')?></a></li>
+                    <li>
+                        <a href="<?= Url::to(['/document']) ?>" class="dropdown-trigger" data-target="dropdownDocument">
+                            <?=Yii::t('app', 'Documents')?>
+                        </a>
+                        <ul id="dropdownDocument" class="dropdown-content light-blue">
+                            <?=$documentMenuHtml?>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="<?= Url::to(['/organization/republic-organizations']) ?>" class="dropdown-trigger" data-target="dropdownOrganization">
+                            <?=Yii::t('app', 'Organizations')?>
+                        </a>
+                        <ul id="dropdownOrganization" class="dropdown-content light-blue">
+                            <li><a href="<?=Url::to(['/organization/republic-organizations'])?>"><?=Yii::t('app', 'Republic organizations')?></a></li>
+                            <li><a href="<?= Url::to(['/organization/district-medical-associations']) ?>"><?=Yii::t('app', 'District medical associations')?></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<?= Url::to(['/']) ?>"><?=Yii::t('app', 'Announcement')?></a></li>
+                    <li>
+                        <a href="<?= Url::to(['/ministry']) ?>" class="dropdown-trigger" data-target="dropdownMinistry">
+                            <?=Yii::t('app', 'Ministry')?>
+                        </a>
+                        <ul id="dropdownMinistry" class="dropdown-content light-blue">
+                            <li><a href="<?=Url::to(['/ministry/general-information'])?>"><?=Yii::t('app', 'General information')?></a></li>
+                            <li><a href="<?=Url::to(['/ministry/leadership'])?>"><?=Yii::t('app', 'Leadership')?></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<?= Url::to(['/site/contact']) ?>"><?=Yii::t('app', 'Contact')?></a></li>
+                </ul>
 
-            <!-- Mobile nav -->
-            <ul id="nav-mobile" class="sidenav light-blue lighten-2 white-text">
-                <li><a href="<?= Url::to(['/']) ?>"><?=Yii::t('app', 'Home')?></a></li>
-                <li><a href="<?= Url::to(['/news/all']) ?>"><?=Yii::t('app', 'News')?></a></li>
-                <li><a href="<?= Url::to(['/covid/news'])?>"><?=Yii::t('app', 'COVID-19')?></a></li>
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li>
-                            <a class="collapsible-header"><?=Yii::t('app', 'Documents')?></a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <?=$documentMenuHtml?>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li>
-                            <a class="collapsible-header"><?=Yii::t('app', 'Organizations')?></a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li><a href="<?=Url::to(['/organization/republic-organizations'])?>"><?=Yii::t('app', 'Republic organizations')?></a></li>
-                                    <li><a href="<?= Url::to(['/organization/district-medical-associations']) ?>"><?=Yii::t('app', 'District medical associations')?></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="<?= Url::to(['/']) ?>"><?=Yii::t('app', 'Announcement')?></a></li>
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li>
-                            <a class="collapsible-header"><?=Yii::t('app', 'Ministry')?></a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li><a href="<?=Url::to(['/ministry/general-information'])?>"><?=Yii::t('app', 'General information')?></a></li>
-                                    <li><a href="<?=Url::to(['/ministry/leadership'])?>"><?=Yii::t('app', 'Leadership')?></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="<?= Url::to(['/site/contact']) ?>"><?=Yii::t('app', 'Contact')?></a></li>
-            </ul>
-            <!-- nav Mobile trigger -->
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-                <i class="material-icons">menu</i>
-            </a>
-        </div>
-    </nav>
+                <!-- Mobile nav -->
+                <ul id="nav-mobile" class="sidenav light-blue lighten-2 white-text">
+                    <li><a href="<?= Url::to(['/']) ?>"><?=Yii::t('app', 'Home')?></a></li>
+                    <li><a href="<?= Url::to(['/news/all']) ?>"><?=Yii::t('app', 'News')?></a></li>
+                    <li><a href="<?= Url::to(['/covid/news'])?>"><?=Yii::t('app', 'COVID-19')?></a></li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li>
+                                <a class="collapsible-header"><?=Yii::t('app', 'Documents')?></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <?=$documentMenuHtml?>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li>
+                                <a class="collapsible-header"><?=Yii::t('app', 'Organizations')?></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="<?=Url::to(['/organization/republic-organizations'])?>"><?=Yii::t('app', 'Republic organizations')?></a></li>
+                                        <li><a href="<?= Url::to(['/organization/district-medical-associations']) ?>"><?=Yii::t('app', 'District medical associations')?></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="<?= Url::to(['/']) ?>"><?=Yii::t('app', 'Announcement')?></a></li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li>
+                                <a class="collapsible-header"><?=Yii::t('app', 'Ministry')?></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="<?=Url::to(['/ministry/general-information'])?>"><?=Yii::t('app', 'General information')?></a></li>
+                                        <li><a href="<?=Url::to(['/ministry/leadership'])?>"><?=Yii::t('app', 'Leadership')?></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="<?= Url::to(['/site/contact']) ?>"><?=Yii::t('app', 'Contact')?></a></li>
+                </ul>
+                <!-- nav Mobile trigger -->
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
+            </div>
+        </nav>
+    </div>
 </header>
 
 <div class="fluid-container main">

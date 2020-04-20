@@ -37,3 +37,19 @@ var sideNavInstance = M.Sidenav.init(sideNavElem, {});
 //sidenav collapsible init
 // var sideNavCollapsibleElem = document.querySelector('.collapsible');
 // var sideNavCollapsibleInstance = M.Collapsible.init(sideNavCollapsibleElem);
+
+/*
+document.addEventListener('DOMContentLoaded', function () {
+    const navbarContainer = document.getElementById('navbarContainer');
+    const topHeader = document.getElementById('topHeader');
+    if (navbarContainer && topHeader) {
+        window.addEventListener('scroll', function () {
+            console.log('scroll');
+            if (navbarContainer.getBoundingClientRect().top < -100) {
+                topHeader.classList.add('hide');
+                navbarContainer.classList.add('navbar-fixed');
+
+            }
+        });
+    }
+});*/

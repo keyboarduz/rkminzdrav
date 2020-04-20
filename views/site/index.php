@@ -47,8 +47,8 @@ $this->title = Yii::$app->params['organization.name'];
 
         <!-- foydali ma'lumotlar  -->
         <div class="col s12 m12 l4 useful-sites">
-            <h1>Covid-19</h1>
             <?php if(isset($covidData) && $covidData): ?>
+                <h1>Covid-19</h1>
                 <?= Covid19::widget(['covidData' => $covidData, 'cardImage' => false]); ?>
             <?php endif; ?>
 
@@ -109,7 +109,7 @@ $this->title = Yii::$app->params['organization.name'];
                             <?= Html::a(
                                 Yii::t('app', 'Follow us through our channel in Telegram'),
                                 'https://t.me/qrdssm',
-                                ['target' => '_blank']
+                                ['target' => '_blank', 'class' => 'blue-text text-darken-4']
                             )?>
                         </div>
                     </div>
