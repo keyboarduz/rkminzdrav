@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'title',
                 'description',
-                'content:html',
+                'content:raw',
             ],
         ]) ?>
     </div>
