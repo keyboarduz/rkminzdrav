@@ -18,8 +18,4 @@ tinymce.init({
     convert_urls : true,
     image_caption: true, // figure tag
     extended_valid_elements: 'figure[class|name|id],figcaption[class|name|id]',
-    image_list: [
-        {title: 'Covid', value: '/images/covid.jpeg'},
-        {title: 'Hospital', value: '/images/hospital.jpg'}
-    ]
 });

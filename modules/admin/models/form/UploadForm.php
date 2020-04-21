@@ -56,7 +56,12 @@ class UploadForm extends Model
             [
                 'imageFile',
                 'file',
-                'extensions' => ['jpg', 'png', 'gif', 'jpeg'],
+//                'extensions' => ['jpg', 'png', 'gif', 'jpeg'],
+                'mimeTypes' => [
+                    'image/png',
+                    'image/jpeg',
+                    'image/gif',
+                ],
                 'skipOnEmpty' => true,
                 'maxSize' => $this->maxFileSize, // 1 megabyte
                 'on' => [self::SCENARIO_UPLOAD_IMAGE_UPDATE, self::SCENARIO_UPLOAD_IMAGE, self::SCENARIO_DEFAULT],

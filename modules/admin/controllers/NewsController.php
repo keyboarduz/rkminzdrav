@@ -174,6 +174,8 @@ class NewsController extends Controller
                 ];
             }
             if ($uploadForm->hasErrors('imageFile')) {
+                Yii::debug($uploadForm->imageFile->type, 'image-type');
+                Yii::debug($uploadForm->imageFile->extension, 'image-extension');
                 Yii::error($uploadForm->getErrors(), 'image-save');
                 throw new BadRequestHttpException('Invalid extension or file size');
             }
