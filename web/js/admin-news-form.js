@@ -1,9 +1,12 @@
 tinymce.init({
     selector: '#contentArea',
 
-    plugins: 'advlist link image lists code help table wordcount',
+    plugins: [
+        'advlist link image lists code help table wordcount',
+        'emoticons' // emoji icons
+    ],
     menubar: 'file edit view insert format table help',
-    toolbar: 'image | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | image link | emoticons',
 
     height: 500,
     language: 'ru',
