@@ -40,7 +40,6 @@ class SuperController extends Controller
                 'db' => $oldApp->db,
             ],
         ]);
-        \Yii::$app->runAction('migrate/up', ['migrationPath' => '@yii/rbac/migrations', 'interactive' => false]);
         \Yii::$app = $oldApp;
         $this->rbacInit();
     }
