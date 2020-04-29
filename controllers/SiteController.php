@@ -153,6 +153,9 @@ class SiteController extends Controller
             'id'            => 'Rbac init',
             'basePath'      => '@app',
             'components'    => [
+                'authManager' => [
+                    'class' => 'yii\rbac\DbManager',
+                ],
                 'db' => $oldApp->db,
             ],
         ]);
