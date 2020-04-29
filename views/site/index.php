@@ -13,7 +13,7 @@ $this->title = Yii::$app->params['organization.name'];
     <div class="row">
         <!-- Yangiliklar -->
         <div class="col s12 m12 l8 news-cards">
-            <h1><?= Yii::t('app', 'News') ?></h1>
+            <h1 class="header"><?= Yii::t('app', 'News') ?></h1>
             <div class="row">
                 <?php if ( $news ): ?>
                     <?php foreach ($news as $oneNews): ?>
@@ -29,7 +29,9 @@ $this->title = Yii::$app->params['organization.name'];
                                         <?= Html::encode($oneNews->title)?>
                                     </span>
                                     <p><?= $oneNews->description?></p>
-                                    <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn btn-small light-blue pull-right"><?= Yii::t('app', 'More') ?></a>
+                                    <a href="<?= Url::to('/news/' . $oneNews->id) ?>" class="btn btn-small light-blue lighten-4 pull-right">
+                                        <?= Yii::t('app', 'More') ?>
+                                    </a>
                                 </div>
                             </div>
 

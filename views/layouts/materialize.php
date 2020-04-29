@@ -168,10 +168,10 @@ foreach ($countDocumentCategories as $k => $v) {
 </header>
 
 <div class="fluid-container main">
-    <div class="breadcrumb-nav">
+    <div class="breadcrumbs-container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            'homeLink' => ['label' => Yii::t('app', 'Main'), 'url' => ['/']],
+            'homeLink' => ['label' => '<i class="material-icons">home</i>'/*Yii::t('app', 'Main')*/, 'url' => ['/'], 'encode' => false],
         ]) ?>
     </div>
     <?= $content ?>

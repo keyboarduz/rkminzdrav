@@ -6,6 +6,7 @@ use app\modules\admin\models\form\UploadForm;
 use Yii;
 use app\modules\admin\models\News;
 use app\modules\admin\models\search\NewsSearch;
+use yii\filters\AccessControl;
 use yii\helpers\FileHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -14,6 +15,7 @@ use yii\filters\VerbFilter;
 use yii\web\Response;
 use yii\web\ServerErrorHttpException;
 use yii\web\UploadedFile;
+use function foo\func;
 
 /**
  * NewsController implements the CRUD actions for News model.
@@ -26,6 +28,41 @@ class NewsController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::class,
+                'only' => ['index', 'create', 'update', 'delete', 'view'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index'],
+                        'roles' => ['manageNews'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['create'],
+                        'roles' => ['createNews'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['update'],
+                        'roles' => ['updateNews'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['delete'],
+                        'roles' => ['deleteNews'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['view'],
+                        'roles' => ['viewNews'],
+                    ]
+                ],
+                'denyCallback' => function($rule, $action) {
+                    Yii::$app->getSession()->setFlash('danger', 'Sizga bu amalni bajarishga ruxsat berilmagan');
+                    return $action->controller->goBack(Yii::$app->getRequest()->referrer);
+                }
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -148,40 +185,6 @@ class NewsController extends Controller
         $this->findModel($id)->deleteNewsWithImage();
 
         return $this->redirect(['index']);
-    }
-
-    /**
-     * Matn redaktori rasmlarini yuklash uchun.
-     * Agar rasm muvaffaqiyatli yuklansa, json da rasmga ko'rsatilgan link qaytaradi
-     *
-     * @return array
-     * @throws ServerErrorHttpException
-     * @throws BadRequestHttpException
-     */
-    public function actionUploadImage()
-    {
-        $uploadForm = new UploadForm(['scenario' => UploadForm::SCENARIO_UPLOAD_IMAGE]);
-        $uploadForm->filePath = Yii::getAlias('@webroot/uploads/images');
-        $uploadForm->maxFileSize = 1024 * 2 * 1000;
-
-        // file uploaded
-        if ($uploadForm->imageFile = UploadedFile::getInstanceByName('file')) {
-            if ($fileNameWithPath = $uploadForm->uploadFile()) {
-                Yii::$app->getResponse()->format = Response::FORMAT_JSON;
-
-                return [
-                    'location' => Yii::getAlias('@web/uploads/images') . UploadForm::getMd5FilePath($fileNameWithPath),
-                ];
-            }
-            if ($uploadForm->hasErrors('imageFile')) {
-                Yii::debug($uploadForm->imageFile->type, 'image-type');
-                Yii::debug($uploadForm->imageFile->extension, 'image-extension');
-                Yii::error($uploadForm->getErrors(), 'image-save');
-                throw new BadRequestHttpException('Invalid extension or file size');
-            }
-        }
-
-        throw new ServerErrorHttpException();
     }
 
     /**

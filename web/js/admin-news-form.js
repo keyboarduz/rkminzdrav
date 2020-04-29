@@ -13,7 +13,39 @@ tinymce.init({
     language: 'ru',
 
     /* image config */
-    images_upload_url: '/admin/news/upload-image',
+    images_upload_handler: function (blobInfo, success, failure) {
+        let xhr, formData;
+
+        xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.open('POST', '/admin/upload/upload-image');
+
+        xhr.onload = function() {
+            let json;
+
+            if (xhr.status != 200) {
+                failure('HTTP Error: ' + xhr.status);
+                return;
+            }
+
+            json = JSON.parse(xhr.responseText);
+
+            if (!json || typeof json.location != 'string') {
+                failure('Invalid JSON: ' + xhr.responseText);
+                return;
+            }
+
+            success(json.location);
+        };
+
+        formData = new FormData();
+        formData.append('file', blobInfo.blob(), blobInfo.filename());
+        /* append csrf token */
+        formData.append(yii.getCsrfParam(), yii.getCsrfToken());
+
+        xhr.send(formData);
+    },
+
     relative_urls : false,
     convert_urls : true,
     image_caption: true, // figure tag

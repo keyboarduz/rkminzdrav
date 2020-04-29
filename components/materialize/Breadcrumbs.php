@@ -63,7 +63,8 @@ class Breadcrumbs extends \yii\widgets\Breadcrumbs
             Html::tag('div',
                 Html::tag($this->tag, implode('', $links), $this->options),
                 ['class' => 'nav-wrapper']
-            )
+            ),
+            ['class' => 'transparent']
         );
     }
 

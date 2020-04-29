@@ -62,11 +62,22 @@ $newContactCount = Contact::find()->where(['status' => Contact::STATUS_NEW])->co
                     ],
                     ['label' => 'Hujjatlar', 'icon' => 'file-text', 'url' => ['/admin/manage-document']],
                     [
+                        'label' => 'Super Admin Tools',
+                        'icon' => 'share',
+                        'url' => '#',
+                        'visible' => Yii::$app->getUser()->can('superAdmin'),
+                        'items' => [
+                            ['label' => 'Rbac init', 'icon' => 'file-code-o', 'url' => ['super/rbac-init']],
+                            ['label' => 'Migrate up', 'icon' => 'file-code-o', 'url' => ['super/migrate-up']]
+                        ]
+                    ],
+                    [
                         'label' => 'Some tools',
                         'icon' => 'share',
                         'url' => '#',
                         'visible' => YII_DEBUG,
                         'items' => [
+                            ['label' => 'Migratsiya', 'icon' => 'file-code-o', 'url' => ['super/ok'],],
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
                             ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
                             [

@@ -118,6 +118,23 @@ a.desc:after {
     display: block;
   }
 }
+
+/*breadcrumbs*/
+.breadcrumbs-container {
+  margin-top: 5px;
+}
+.breadcrumbs-container nav {
+  box-shadow: none;
+}
+.breadcrumbs-container .nav-wrapper:first-child {
+  margin-left: 20px;
+}
+.breadcrumbs-container .breadcrumb,
+.breadcrumbs-container .breadcrumb:before {
+  color: #616161;
+}
+
+
 /*** Dropdown navbar ***/
 .dropdown-content li > a {
   color: #fff;
@@ -192,40 +209,6 @@ nav :focus {
 
 nav.primary-nav ul a {
   font-size: 16px;
-}
-
-/*** Breadcrumbs ***/
-.breadcrumb {
-  font-size: 16px;
-  color: rgba(0, 0, 0, .6);
-}
-.breadcrumb:last-child {
-  color: rgba(0, 0, 0, .5);
-}
-.breadcrumb-nav {
-  margin-top: 20px;
-}
-.breadcrumb-nav nav {
-  height: 30px;
-  line-height: 30px;
-  background-color: transparent;
-}
-.breadcrumb:before {
-  content: '\f105';
-  color: rgba(0, 0, 0, 0.7);
-  vertical-align: top;
-  display: inline-block;
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 1.3rem;
-  margin: 0 10px 0 8px;
-  -webkit-font-smoothing: antialiased;
-}
-
-/** breadcrumbs dan box-shadow ni o'shirish */
-.breadcrumb-nav nav {
-  box-shadow: none !important;
 }
 
 /*** pagination ***/

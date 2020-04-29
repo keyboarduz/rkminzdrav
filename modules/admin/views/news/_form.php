@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\web\YiiAsset;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
 use app\modules\admin\models\Category;
@@ -12,7 +13,7 @@ use app\assets\TinymceAsset;
 /* @var $uploadModel \app\modules\admin\models\form\UploadForm */
 
 TinymceAsset::register($this);
-$this->registerJsFile('/js/admin-news-form.js', ['depends' => [TinymceAsset::class]]);
+$this->registerJsFile('/js/admin-news-form.js', ['depends' => [TinymceAsset::class, YiiAsset::class]]);
 
 $enableClientValidationForFile = true;
 $styleDisplayForFileInput = 'block';

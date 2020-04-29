@@ -15,6 +15,9 @@ return [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'formatter' => [
             'dateFormat' => 'dd.MM.yyyy',
             'decimalSeparator' => ',',
