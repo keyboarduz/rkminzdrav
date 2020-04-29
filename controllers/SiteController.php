@@ -146,4 +146,17 @@ class SiteController extends Controller
 
         return $user->save() ? 'OK' : 'Error';
     }
+
+    public function actionRbacInit() {
+        $oldApp = \Yii::$app;
+        new \yii\console\Application([
+            'id'            => 'Rbac init',
+            'basePath'      => '@app',
+            'components'    => [
+                'db' => $oldApp->db,
+            ],
+        ]);
+        \Yii::$app->runAction('migrate/up', ['migrationPath' => '@yii/rbac/migrations', 'interactive' => false]);
+        \Yii::$app = $oldApp;
+    }
 }
