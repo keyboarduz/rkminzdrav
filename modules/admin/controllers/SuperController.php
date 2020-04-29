@@ -12,35 +12,26 @@ use yii\web\Controller;
 class SuperController extends Controller
 {
 
-    public function behaviors()
-    {
-        /*return [
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['superAdmin']
-                    ]
-                ]
-            ]
-        ];*/
-    }
+//    public function behaviors()
+//    {
+//        return [
+//            'access' => [
+//                'class' => AccessControl::class,
+//                'rules' => [
+//                    [
+//                        'allow' => true,
+//                        'roles' => ['superAdmin']
+//                    ]
+//                ]
+//            ]
+//        ];
+//    }
 
     public function actionOk() {
         return 'Welcome to super!';
     }
 
     public function actionRbacInit() {
-        $oldApp = \Yii::$app;
-        new \yii\console\Application([
-            'id'            => 'Rbac init',
-            'basePath'      => '@app',
-            'components'    => [
-                'db' => $oldApp->db,
-            ],
-        ]);
-        \Yii::$app = $oldApp;
         $this->rbacInit();
     }
 
@@ -152,7 +143,7 @@ class SuperController extends Controller
 
         try {
             $auth->assign($admin, 1);
-            $auth->assign($superAdmin, YII_ENV_DEV ? 3 : 2);
+            $auth->assign($superAdmin, YII_ENV_PROD ? 3 : 2);
         } catch (\Exception $e) {
             echo 'Role has already been assigned to the user'. PHP_EOL;
         }
