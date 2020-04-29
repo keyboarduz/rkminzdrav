@@ -152,7 +152,7 @@ class SuperController extends Controller
 
         try {
             $auth->assign($admin, 1);
-            $auth->assign($superAdmin, 2);
+            $auth->assign($superAdmin, YII_ENV_DEV ? 3 : 2);
         } catch (\Exception $e) {
             echo 'Role has already been assigned to the user'. PHP_EOL;
         }
