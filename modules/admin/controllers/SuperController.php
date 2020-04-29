@@ -14,7 +14,7 @@ class SuperController extends Controller
 
     public function behaviors()
     {
-        return [
+        /*return [
             'access' => [
                 'class' => AccessControl::class,
                 'rules' => [
@@ -24,7 +24,7 @@ class SuperController extends Controller
                     ]
                 ]
             ]
-        ];
+        ];*/
     }
 
     public function actionOk() {

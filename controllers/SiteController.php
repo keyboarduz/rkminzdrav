@@ -127,16 +127,12 @@ class SiteController extends Controller
     }
 
 
-    public function actionLogin() {
+    /*public function actionLogin() {
         return Yii::$app->getUser()->login(User::findIdentity(2), 3600);
-    }
+    }*/
 
-    public function actionCreateSuperAdmin()
+    /*public function actionCreateSuperAdmin()
     {
-        /*if (YII_ENV_PROD) {
-            return $this->redirect('/');
-        }*/
-
         $user = new User();
 
         $user->username = 'superAdmin';
@@ -145,9 +141,9 @@ class SiteController extends Controller
         $user->generateAuthKey();
 
         return $user->save() ? 'OK' : 'Error';
-    }
+    }*/
 
-    public function actionRbacInit() {
+    /*public function actionRbacInit() {
         $oldApp = \Yii::$app;
         new \yii\console\Application([
             'id'            => 'Rbac init',
@@ -161,5 +157,5 @@ class SiteController extends Controller
         ]);
         \Yii::$app->runAction('migrate/up', ['migrationPath' => '@yii/rbac/migrations', 'interactive' => false]);
         \Yii::$app = $oldApp;
-    }
+    }*/
 }
