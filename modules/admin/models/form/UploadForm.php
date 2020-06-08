@@ -173,9 +173,6 @@ class UploadForm extends Model
     }
 
     public static function getMd5FilePath (string $imageName) {
-        if ($imageName === null) {
-            return '';
-        }
         return '/' . substr($imageName, 0 , 2) . '/' . substr($imageName, 2, 2) . '/' . $imageName;
     }
 

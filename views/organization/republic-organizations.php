@@ -20,12 +20,14 @@ $this->params['breadcrumbs'][] = ['label' => $this->title]
         <h1 class="page-title"><?= Html::encode($this->title)?></h1>
         <?php foreach ($models as $model): ?>
             <div class="card">
-                <figure>
-                    <?=Html::img(Yii::getAlias('@web/uploads/images') . UploadForm::getMd5FilePath($model->photo), [
-                        'class' => 'responsive-img materialboxed',
-                        'data-caption' => $model->name
-                    ]) ?>
-                </figure>
+                <?php if ($model->photo): ?>
+                    <figure>
+                        <?=Html::img(Yii::getAlias('@web/uploads/images') . UploadForm::getMd5FilePath($model->photo), [
+                            'class' => 'responsive-img materialboxed',
+                            'data-caption' => $model->name
+                        ]) ?>
+                    </figure>
+                <?php endif; ?>
                 <div class="card-content organization-data">
                     <div class="organization-name card-title">
                         <h2><i class="fa fa-hospital-o"></i> <?=$model->name?></h2>
