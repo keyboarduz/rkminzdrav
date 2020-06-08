@@ -12,20 +12,20 @@ use yii\web\Controller;
 class SuperController extends Controller
 {
 
-//    public function behaviors()
-//    {
-//        return [
-//            'access' => [
-//                'class' => AccessControl::class,
-//                'rules' => [
-//                    [
-//                        'allow' => true,
-//                        'roles' => ['superAdmin']
-//                    ]
-//                ]
-//            ]
-//        ];
-//    }
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['superAdmin']
+                    ]
+                ]
+            ]
+        ];
+    }
 
     public function actionOk() {
         return 'Welcome to super!';
