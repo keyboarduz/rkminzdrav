@@ -17,6 +17,7 @@ class ContactForm extends Model
     public $subject;
     public $body;
     public $recaptcha;
+    public $phone;
 
 
     /**
@@ -29,6 +30,7 @@ class ContactForm extends Model
             // name, email, subject and body are required
             [['name', 'email', 'subject', 'body'], 'required'],
             [['name', 'subject', 'body'], 'string'],
+            ['phone', 'match', 'pattern' => '/^[+]*[0-9]{3}[-0-9]*$/i', 'enableClientValidation' => false, 'message' => 'Телефон формати тугри емас'],
             // email has to be a valid email address
             ['email', 'email'],
         ];
@@ -44,6 +46,7 @@ class ContactForm extends Model
             'email' => 'E-mail',
             'subject' => 'Хабар мавзуси',
             'body' => 'Матн',
+            'phone' => 'Телефон'
         ];
     }
 
@@ -60,7 +63,6 @@ class ContactForm extends Model
             $contact->attributes = $this->attributes;
 
             $isValid = $contact->save();
-
 
             if (Yii::$app->params['enableEmail']) {
                 $isValid = $isValid && Yii::$app->mailer->compose()

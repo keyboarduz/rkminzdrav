@@ -58,6 +58,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             <label for="<?=$model->formName()?>-email"><?=$model->getAttributeLabel('email')?></label>
                         </div>
                         <div class="input-field">
+                            <input id="<?=$model->formName()?>-phone" type="text" name="<?=$model->formName()?>[phone]">
+                            <label for="<?=$model->formName()?>-phone"><?=$model->getAttributeLabel('phone')?></label>
+                            <span class="helper-text" data-error="wrong" data-success="right"><i>+998-XX-XXX-XX-XX</i> форматида киритинг</span>
+                        </div>
+                        <div class="input-field">
                             <input id="<?=$model->formName()?>-subject" type="text" name="<?=$model->formName()?>[subject]">
                             <label for="<?=$model->formName()?>-subject"><?=$model->getAttributeLabel('subject')?></label>
                         </div>

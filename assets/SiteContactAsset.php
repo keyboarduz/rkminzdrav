@@ -21,6 +21,9 @@ class SiteContactAsset extends AssetBundle
     ];
 
     public $js = [
+        'js/plugins/formatter/cleave.min.js',
+        'js/plugins/formatter/cleave-phone.i18n.js',
+        'js/contact.js',
         'js/openmap.js',
     ];
 

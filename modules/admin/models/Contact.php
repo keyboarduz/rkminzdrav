@@ -44,6 +44,7 @@ class Contact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            ['phone', 'string', 'max' => 30],
             [['name', 'email', 'subject', 'body'], 'required' ],
             [['name', 'body'], 'string'],
             [['status'], 'default', 'value' => self::STATUS_NEW ],
@@ -64,6 +65,7 @@ class Contact extends \yii\db\ActiveRecord
             'subject' => 'Mavzu',
             'body' => 'Kontent',
             'status' => 'Status',
+            'Phone' => 'Telefon',
             'created_at' => 'Yaratildi',
             'updated_at' => 'O\'zgartirildi',
         ];

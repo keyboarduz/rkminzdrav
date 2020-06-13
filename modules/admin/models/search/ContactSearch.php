@@ -49,7 +49,7 @@ class ContactSearch extends Contact
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['status' => SORT_ASC]]
+            'sort' => ['defaultOrder' => ['status' => SORT_ASC,'created_at' => SORT_DESC, ]]
         ]);
 
         $this->load($params);
