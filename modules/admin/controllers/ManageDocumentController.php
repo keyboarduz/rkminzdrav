@@ -67,6 +67,7 @@ class ManageDocumentController extends Controller
     {
         $model = new Document();
         $fileModel = new UploadForm(['scenario' => UploadForm::SCENARIO_UPLOAD_DOCUMENT]);
+        $fileModel->maxFileSize = 1024*1000*4;
         $fileModel->filePath = Yii::getAlias('@webroot/uploads/documents');
 
         if ( Yii::$app->request->isPost && $model->load(Yii::$app->request->post()) ) {
@@ -103,6 +104,7 @@ class ManageDocumentController extends Controller
     {
         $model = $this->findModel($id);
         $fileModel = new UploadForm(['scenario' => UploadForm::SCENARIO_UPLOAD_DOCUMENT]);
+        $fileModel->maxFileSize = 1024*1000*4;
         $fileModel->filePath = Yii::getAlias('@webroot/uploads/documents');
 
         if ( Yii::$app->request->isPost && $model->load(Yii::$app->request->post()) ) {
