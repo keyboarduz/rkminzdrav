@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'photo',
                     'format' => ['image', ['width' => 100]],
                     'value' => function($model) {
-                        return  Yii::getAlias('@web/uploads/images') . UploadForm::getMd5FilePath($model->photo);
+                        return  is_string($model->photo) ? Yii::getAlias('@web/uploads/images') . UploadForm::getMd5FilePath($model->photo) : '' ;
                     },
                     'filter' => false,
                 ],
