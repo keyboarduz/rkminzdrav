@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'content')->widget(CKEditor::class, [
             'options' => ['rows' => 6],
             'preset' => 'full',
-            'kcfinder'=>true,
+//            'kcfinder'=>true,
             'clientOptions' => [
                 'stylesSet' => ['name' => 'Custom Image', 'element' => 'img', 'attributes' => ['class' => 'responsive-img']]
             ]
